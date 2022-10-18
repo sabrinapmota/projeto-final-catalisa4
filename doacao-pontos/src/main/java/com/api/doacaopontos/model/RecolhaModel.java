@@ -1,0 +1,32 @@
+package com.api.doacaopontos.model;
+
+import com.api.doacaopontos.model.enuns.CategoriaItemEnum;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.GeneratorType;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "recolha")
+public class RecolhaModel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column (nullable = false, length =  100)
+    private String nomeItem;
+
+    @Enumerated(EnumType.STRING)
+    private CategoriaItemEnum cateroriaItem;
+
+
+
+}

@@ -99,7 +99,10 @@
         <object-type name="FUNCTION" sorting-type="NAME" />
         <object-type name="PROCEDURE" sorting-type="NAME" />
         <object-type name="ARGUMENT" sorting-type="POSITION" />
+<<<<<<< HEAD
         <object-type name="TYPE ATTRIBUTE" sorting-type="POSITION" />
+=======
+>>>>>>> a5373807abeb55459b59e0f5bf3d00094006b9f8
       </sorting>
       <default-editors>
         <object-type name="VIEW" editor-type="SELECTION" />

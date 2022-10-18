@@ -1,4 +1,4 @@
 package com.api.doacaopontos.controller;
 
-public class CadastroController {
+public class CadastroDoadorController {
 }

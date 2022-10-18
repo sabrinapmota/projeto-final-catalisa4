@@ -37,5 +37,5 @@ public class CadastroDoadorDto {
     @NotBlank
     private String bairro;
     @Size(max = 5)
-    private String pontos;
+    private Long pontos;
 }

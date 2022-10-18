@@ -1,6 +1,7 @@
 package com.api.doacaopontos.services;
 
 import com.api.doacaopontos.model.ItemDoado;
+import com.api.doacaopontos.model.enuns.SelecaoCategoria;
 import com.api.doacaopontos.model.somaPontos.PontosCategoria;
 import com.api.doacaopontos.model.somaPontos.PontosEstetica;
 import com.api.doacaopontos.model.somaPontos.PontosEstrutura;
@@ -22,7 +23,10 @@ public class ItemDoadosService {
 
     public Optional<ItemDoado>buscarId(Long id){return itemDoadoRepository.findById(id);}
 
-    public ItemDoado cadastrar(ItemDoado itemDoado, PontosEstetica pontosEstetica, PontosEstrutura pontosEstrutura, PontosFuncional pontosFuncional, PontosCategoria pontosCategoria){
+    public ItemDoado cadastrar(ItemDoado itemDoado, PontosEstetica pontosEstetica, PontosEstrutura pontosEstrutura, PontosFuncional pontosFuncional,
+                               PontosCategoria pontosCategoria, SelecaoCategoria selecaoCategoria){
+       String categoria= selecaoCategoria.categoria(itemDoado.getCategoria());
+       itemDoado.setCategoria(categoria);
         Long pntEstica =  pontosEstetica.categoria(itemDoado.getEstetica());
         Long pntEstrutura =  pontosEstrutura.categoria(itemDoado.getEstrutura());
         Long pntFuncional =  pontosFuncional.categoria(itemDoado.getFuncional());

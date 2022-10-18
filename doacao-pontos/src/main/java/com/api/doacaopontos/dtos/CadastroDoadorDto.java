@@ -15,18 +15,20 @@ import javax.validation.constraints.Size;
 public class CadastroDoadorDto {
     @NotBlank
     private String nome;
+
     @NotBlank
     @CPF
     private
     String cpf;
-    @NotBlank
-    private String telefone;
+
     @NotBlank
     @Email
     private String email;
+
     @NotBlank
     @Size(max = 12)
     private String telefone;
+
     @NotBlank
     @Size(max = 8)
     private String cep;

@@ -20,12 +20,7 @@ public class CadastroDoadorServices {
 
     public List<CadastroDoadorDto> buscarTodos() {
         List<CadastroDoadorModel> buscarDoadores = cadastroDoadorRepository.findAll();
-        return buscarDoadores.stream().map(cadastro -> new CadastroDoadorDto(cadastro.getNome(),
-                cadastro.getCpf(),
-                cadastro.getTelefone(),
-                cadastro.getCep(),
-                cadastro.getEmail()
-                cadastro.getBairro())).collect(Collectors.toList());
+        return buscarDoadores.stream().map(cadastro -> new CadastroDoadorDto(cadastro.getNome(),cadastro.getCpf(),cadastro.getEmail(),cadastro.getTelefone(),cadastro.getCep(), cadastro.getEndereco(),cadastro.getBairro(), cadastro.getPontos())).collect(Collectors.toList());
 
     }
 

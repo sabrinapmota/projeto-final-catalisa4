@@ -40,11 +40,11 @@ public class CadastroDoadorServices {
 
     @Transactional
     public CadastroDoadorModel alterarCadastro(CadastroDoadorModel cadastroDoadorModel) {
-        return cadastroDoadorRepository.save(cadastroDoadorModel)
+        return cadastroDoadorRepository.save(cadastroDoadorModel);
     }
 
     @Transactional
-    public void deletarCadastro(CadastroDoadorModel cadastroDoadorModel) {
-        cadastroDoadorRepository.delete(cadastroDoadorModel);
+    public void deletarCadastro(UUID id) {
+        cadastroDoadorRepository.deleteById(id);
     }
 }

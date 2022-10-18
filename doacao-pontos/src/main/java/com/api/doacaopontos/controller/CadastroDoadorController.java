@@ -42,7 +42,5 @@ public class CadastroDoadorController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deletarCadastro(@PathVariable(value = "id") UUID id) {
-        Optional<CadastroDoadorModel> cadastroDoadorModel = cadastroDoadorServices.deletarCadastro(id);
-    }
+    public void deletarCadastro(@PathVariable(value = "id") UUID id) { cadastroDoadorServices.deletarCadastro(id);}
 }

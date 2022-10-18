@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -28,6 +29,9 @@ public class BeneficiarioModel {
         @Column(name = "cpf", nullable = false)
         @CPF
         private String cpfBeneficiario;
+
+        @Column
+        private LocalDate nascimentoBeneficiario;
 
         @Column(name = "endereco", length = 50, nullable = false)
         private String enderecoBeneficiario;

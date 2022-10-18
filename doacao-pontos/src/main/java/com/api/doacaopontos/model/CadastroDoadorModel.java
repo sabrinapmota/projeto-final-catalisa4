@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
@@ -22,8 +23,12 @@ public class CadastroDoadorModel implements Serializable {
     private UUID id;
     @Column(nullable = false, length = 30)
     private String nome;
+    @Column
     @CPF
     private String cpf;
+    @Column
+    private LocalDate nascimento;
+    @Column
     @Email
     private String email;
     @Column(nullable = false, length = 12)
@@ -34,5 +39,6 @@ public class CadastroDoadorModel implements Serializable {
     private String bairro;
     @Column(nullable = false, length = 8)
     private String cep;
-    private String pontos;
+    @Column
+    private Long pontos;
 }

@@ -28,8 +28,9 @@ public class RecolhaController {
         return ResponseEntity.ok(service.buscaPorId(id));
     }
     @PostMapping
-    public ResponseEntity<RecolhaModel> cadastrarRecolha(@RequestBody RecolhaModel recolhaModel){
-        return new ResponseEntity<>(service.cadastrarRecolha(recolhaModel), HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.CREATED)
+    public RecolhaModel cadastrarRecolha(@RequestBody RecolhaModel recolhaModel){
+        return service.cadastrarRecolha(recolhaModel);
     }
 
     @PutMapping(path = "/{id}")

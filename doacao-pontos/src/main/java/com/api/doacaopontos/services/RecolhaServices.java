@@ -18,7 +18,7 @@ public class RecolhaServices {
     public List<DtoRecolha> buscarTodos(){
         List<RecolhaModel> buscarRecolha = repository.findAll();
         return buscarRecolha.stream().map(recolha ->
-                new DtoRecolha(recolha.getNomeItem(), recolha.getCateroriaItem(), recolha.getPontos()))
+                new DtoRecolha(recolha.getNomeItem(), recolha.getCategoriaItem(), recolha.getPontos()))
                 .collect(Collectors.toList());
     }
     public Optional<RecolhaModel> buscaPorId(Long id)

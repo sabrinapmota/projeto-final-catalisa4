@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 @Getter
@@ -16,14 +18,15 @@ import java.io.Serializable;
 public class DtoRecolha implements Serializable {
 
     @NotEmpty(message = "Preechimento Obrigatório")
-    @Length(min = 5, max = 120, message = "O tamanho deve ser entre 5 e 120 Caracteres")
+    @Length(max = 120)
     private String nomeItem;
 
     @NotEmpty(message = "Preechimento Obrigatório")
-    @Length(min = 5, max = 120, message = "O tamanho deve ser entre 5 e 120 Caracteres")
-    private CategoriaItemEnum categoria;
+    @Enumerated(EnumType.STRING)
+    @Length(max = 30)
+    private CategoriaItemEnum categoriaItem;
 
     @NotEmpty(message = "Preechimento Obrigatório")
-    @Length(min = 5, max = 120, message = "O tamanho deve ser entre 5 e 120 Caracteres")
+    @Length(max = 15)
     private Long pontos;
 }

@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 
@@ -28,7 +27,7 @@ public class RecolhaModel {
     private Long pontos;
 
     @Enumerated(EnumType.STRING)
-    private CategoriaItemEnum cateroriaItem;
+    private CategoriaItemEnum categoriaItem;
 
 
 

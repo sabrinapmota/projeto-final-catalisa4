@@ -24,6 +24,7 @@ public class ItemDoadosService {
     public Optional<ItemDoado>buscarId(Long id){return itemDoadoRepository.findById(id);}
 
     public ItemDoado cadastrar(ItemDoado itemDoado){
+        itemDoado.setIdPessoaDoadora(itemDoado.getUsuarioModel().getId());
         return itemDoadoRepository.save(itemDoado);
     }
 

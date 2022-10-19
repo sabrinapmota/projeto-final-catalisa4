@@ -1,6 +1,7 @@
 package com.api.doacaopontos.controller;
 
 import com.api.doacaopontos.model.ItemDoado;
+import com.api.doacaopontos.model.enuns.SelecaoCategoria;
 import com.api.doacaopontos.model.somaPontos.PontosCategoria;
 import com.api.doacaopontos.model.somaPontos.PontosEstetica;
 import com.api.doacaopontos.model.somaPontos.PontosEstrutura;
@@ -32,14 +33,14 @@ public class ItemDoadoController {
     }
 
     @PostMapping
-    public ResponseEntity<ItemDoado> cadastroItem(@RequestBody ItemDoado itemDoado, PontosCategoria pontosCategoria, PontosEstrutura pontosEstrutura, PontosEstetica pontosEstetica, PontosFuncional pontosFuncional){
-        ItemDoado itemDoado1 = itemDoadosService.cadastrar( itemDoado, pontosEstetica, pontosEstrutura, pontosFuncional, pontosCategoria);
+    public ResponseEntity<ItemDoado> cadastroItem(@RequestBody ItemDoado itemDoado, PontosCategoria pontosCategoria, PontosEstrutura pontosEstrutura, PontosEstetica pontosEstetica, PontosFuncional pontosFuncional, SelecaoCategoria selecaoCategoria){
+        ItemDoado itemDoado1 = itemDoadosService.cadastrar( itemDoado, pontosEstetica, pontosEstrutura, pontosFuncional, pontosCategoria, selecaoCategoria);
         return new ResponseEntity<>(itemDoado1, HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<ItemDoado> alterarItem(@RequestBody ItemDoado itemDoado, PontosCategoria pontosCategoria, PontosEstrutura pontosEstrutura, PontosEstetica pontosEstetica, PontosFuncional pontosFuncional) {
-        return ResponseEntity.ok(itemDoadosService.cadastrar(itemDoado, pontosEstetica, pontosEstrutura, pontosFuncional, pontosCategoria));
+    public ResponseEntity<ItemDoado> alterarItem(@RequestBody ItemDoado itemDoado, PontosCategoria pontosCategoria, PontosEstrutura pontosEstrutura, PontosEstetica pontosEstetica, PontosFuncional pontosFuncional, SelecaoCategoria selecaoCategoria) {
+        return ResponseEntity.ok(itemDoadosService.cadastrar(itemDoado, pontosEstetica, pontosEstrutura, pontosFuncional, pontosCategoria, selecaoCategoria));
     }
 
     @DeleteMapping(path = "/{id}")

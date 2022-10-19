@@ -15,32 +15,31 @@ import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/cadastro")
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @PostMapping
+    @PostMapping(path = "/cadastro")
     public ResponseEntity<Object> cadastrar(@RequestBody @Valid UsuarioModel usuarioModel) {
         UsuarioModel usuarioModel1 = usuarioService.cadastrarDoador(usuarioModel);
         return new ResponseEntity<>(usuarioModel1,HttpStatus.CREATED);
     }
 
-    @GetMapping
+    @GetMapping( path = "/consultarUsuarios")
     public ResponseEntity<List<UsuarioDto>> buscartodos() {
         return ResponseEntity.ok(usuarioService.buscarTodos());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/consultarUsuarios/{id}")
     public Optional<UsuarioModel> buscarID(@PathVariable(value = "id") Long id) {
         return usuarioService.buscarId(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/alterarCadastro/{id}")
     public UsuarioModel alterarCadastro(@RequestBody UsuarioModel usuarioModel) {
         return usuarioService.alterarCadastro(usuarioModel);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar/{id}")
     public void deletarCadastro(@PathVariable(value = "id") Long id) { usuarioService.deletarCadastro(id);}
 }

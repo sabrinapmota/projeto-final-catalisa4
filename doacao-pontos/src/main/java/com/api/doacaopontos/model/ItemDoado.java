@@ -21,20 +21,15 @@ public class ItemDoado {
     @NotNull
     private String nome;
     @Column
-    private LocalDate dataDoacao;
+    private String descricao;
     @Column
-    @NotNull
-    private String estetica;
+    private Long idPessoaDoadora;
     @Column
-    @NotNull
-    private String estrutura;
+    private LocalDate dataInicio;
     @Column
-    @NotNull
-    private String funcional;
+    private Long idPessoaRecebedora;
     @Column
-    @NotNull
-    private String categoria;
+    private Long pontosDoador;
     @Column
-    @NotNull
-    private Long totalPontos;
+    private Long pontosRecebedor;
 }

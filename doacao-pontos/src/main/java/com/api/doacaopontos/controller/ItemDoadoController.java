@@ -33,14 +33,14 @@ public class ItemDoadoController {
     }
 
     @PostMapping
-    public ResponseEntity<ItemDoado> cadastroItem(@RequestBody ItemDoado itemDoado, PontosCategoria pontosCategoria, PontosEstrutura pontosEstrutura, PontosEstetica pontosEstetica, PontosFuncional pontosFuncional, SelecaoCategoria selecaoCategoria){
-        ItemDoado itemDoado1 = itemDoadosService.cadastrar( itemDoado, pontosEstetica, pontosEstrutura, pontosFuncional, pontosCategoria, selecaoCategoria);
+    public ResponseEntity<ItemDoado> cadastroItem(@RequestBody ItemDoado itemDoado){
+        ItemDoado itemDoado1 = itemDoadosService.cadastrar( itemDoado);
         return new ResponseEntity<>(itemDoado1, HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<ItemDoado> alterarItem(@RequestBody ItemDoado itemDoado, PontosCategoria pontosCategoria, PontosEstrutura pontosEstrutura, PontosEstetica pontosEstetica, PontosFuncional pontosFuncional, SelecaoCategoria selecaoCategoria) {
-        return ResponseEntity.ok(itemDoadosService.cadastrar(itemDoado, pontosEstetica, pontosEstrutura, pontosFuncional, pontosCategoria, selecaoCategoria));
+    public ResponseEntity<ItemDoado> alterarItem(@RequestBody ItemDoado itemDoado) {
+        return ResponseEntity.ok(itemDoadosService.cadastrar(itemDoado));
     }
 
     @DeleteMapping(path = "/{id}")

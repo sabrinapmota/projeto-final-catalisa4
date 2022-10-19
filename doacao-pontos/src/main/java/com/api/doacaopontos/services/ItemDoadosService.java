@@ -23,15 +23,8 @@ public class ItemDoadosService {
 
     public Optional<ItemDoado>buscarId(Long id){return itemDoadoRepository.findById(id);}
 
-    public ItemDoado cadastrar(ItemDoado itemDoado, PontosEstetica pontosEstetica, PontosEstrutura pontosEstrutura, PontosFuncional pontosFuncional,
-                               PontosCategoria pontosCategoria, SelecaoCategoria selecaoCategoria){
-       String categoria= selecaoCategoria.categoria(itemDoado.getCategoria());
-       itemDoado.setCategoria(categoria);
-        Long pntEstica =  pontosEstetica.categoria(itemDoado.getEstetica());
-        Long pntEstrutura =  pontosEstrutura.categoria(itemDoado.getEstrutura());
-        Long pntFuncional =  pontosFuncional.categoria(itemDoado.getFuncional());
-        Long pntCategoria =  pontosCategoria.categoria((itemDoado.getCategoria()));
-        itemDoado.setTotalPontos(pntEstica + pntEstrutura + pntFuncional + pntCategoria);
+    public ItemDoado cadastrar(ItemDoado itemDoado){
+
         return itemDoadoRepository.save(itemDoado);
     }
 

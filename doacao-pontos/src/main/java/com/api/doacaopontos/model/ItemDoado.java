@@ -16,9 +16,7 @@ public class ItemDoado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column
-    @NotNull
     private String nome;
     @Column
     private String descricao;

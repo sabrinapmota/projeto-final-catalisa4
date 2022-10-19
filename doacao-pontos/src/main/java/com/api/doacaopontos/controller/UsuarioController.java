@@ -21,8 +21,9 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<Object> cadastrar(@RequestBody @Valid UsuarioDto usuarioDto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.cadastrarDoador(new UsuarioModel()));
+    public ResponseEntity<Object> cadastrar(@RequestBody @Valid UsuarioModel usuarioModel) {
+        UsuarioModel usuarioModel1 = usuarioService.cadastrarDoador(usuarioModel);
+        return new ResponseEntity<>(usuarioModel1,HttpStatus.CREATED);
     }
 
     @GetMapping

@@ -27,7 +27,7 @@ public class UsuarioModel implements Serializable {
     @Column
     @Email
     private String email;
-    @Column(nullable = false, length = 12)
+    @Column
     private String telefone;
     @Column
     private Long pontos;

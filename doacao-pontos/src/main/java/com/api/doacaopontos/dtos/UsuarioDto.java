@@ -13,16 +13,10 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UsuarioDto {
-    @NotBlank
+    private Long id;
     private String nome;
-
-    @NotBlank
     @Email
     private String email;
-
-    @NotBlank
-    @Size(max = 12)
     private String telefone;
-    @Size(max = 5)
     private Long pontos;
 }

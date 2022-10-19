@@ -38,9 +38,14 @@ public class ItemDoadoController {
         return new ResponseEntity<>(itemDoado1, HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/{id}")
-    public ResponseEntity<ItemDoado> alterarItem(@RequestBody ItemDoado itemDoado) {
-        return ResponseEntity.ok(itemDoadosService.cadastrar(itemDoado));
+    @PostMapping(path = "/{id}/finalizacao")
+    public ResponseEntity<ItemDoado> pontosRecebedor(@RequestBody ItemDoado itemDoado) {
+        return ResponseEntity.ok(itemDoadosService.pontosRecebedor(itemDoado));
+    }
+
+    @PutMapping(path = "/{id}/doador")
+    public ResponseEntity<ItemDoado> pontosDoador(@RequestBody ItemDoado itemDoado) {
+        return ResponseEntity.ok(itemDoadosService.pontosDoador(itemDoado));
     }
 
     @DeleteMapping(path = "/{id}")

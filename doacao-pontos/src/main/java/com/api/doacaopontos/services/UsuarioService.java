@@ -19,7 +19,7 @@ public class UsuarioService {
 
     public List<UsuarioDto> buscarTodos() {
         List<UsuarioModel> buscarDoadores = cadastroDoadorRepository.findAll();
-        return buscarDoadores.stream().map(cadastro -> new UsuarioDto(cadastro.getNome(),
+        return buscarDoadores.stream().map(cadastro -> new UsuarioDto(cadastro.getId(), cadastro.getNome(),
                 cadastro.getEmail(), cadastro.getTelefone(), cadastro.getPontos())).collect(Collectors.toList());
 
     }
@@ -30,6 +30,7 @@ public class UsuarioService {
 
     @Transactional
     public UsuarioModel cadastrarDoador(UsuarioModel usuarioModel) {
+        usuarioModel.setPontos(0L);
         return cadastroDoadorRepository.save(usuarioModel);
     }
 
@@ -41,5 +42,11 @@ public class UsuarioService {
     @Transactional
     public void deletarCadastro(Long id) {
         cadastroDoadorRepository.deleteById(id);
+    }
+
+    @Transactional
+    public UsuarioModel incrementaPontos(UsuarioModel usuarioModel, Long pontos){
+        usuarioModel.setPontos(usuarioModel.getPontos() + pontos);
+        return cadastroDoadorRepository.save(usuarioModel);
     }
 }

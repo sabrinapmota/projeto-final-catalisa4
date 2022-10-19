@@ -3,7 +3,6 @@ package com.api.doacaopontos.services;
 import com.api.doacaopontos.model.ItemDoado;
 import com.api.doacaopontos.model.UsuarioModel;
 import com.api.doacaopontos.repository.ItemDoadoRepository;
-import com.api.doacaopontos.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

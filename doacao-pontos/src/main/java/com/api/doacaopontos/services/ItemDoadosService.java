@@ -2,11 +2,6 @@ package com.api.doacaopontos.services;
 
 import com.api.doacaopontos.model.ItemDoado;
 import com.api.doacaopontos.model.UsuarioModel;
-import com.api.doacaopontos.model.enuns.SelecaoCategoria;
-import com.api.doacaopontos.model.somaPontos.PontosCategoria;
-import com.api.doacaopontos.model.somaPontos.PontosEstetica;
-import com.api.doacaopontos.model.somaPontos.PontosEstrutura;
-import com.api.doacaopontos.model.somaPontos.PontosFuncional;
 import com.api.doacaopontos.repository.ItemDoadoRepository;
 import com.api.doacaopontos.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

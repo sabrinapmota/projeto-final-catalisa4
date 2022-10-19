@@ -24,6 +24,9 @@ public class RecolhaModel {
     @Column (nullable = false, length =  100)
     private String nomeItem;
 
+    @Column(nullable = false, length = 15)
+    private Long pontos;
+
     @Enumerated(EnumType.STRING)
     private CategoriaItemEnum cateroriaItem;
 

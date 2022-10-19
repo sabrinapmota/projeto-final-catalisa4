@@ -16,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Table(name = "TB_DOADOR")
-public class CadastroDoadorModel implements Serializable {
+public class UsuarioModel implements Serializable {
     private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

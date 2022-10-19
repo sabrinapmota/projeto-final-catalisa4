@@ -1,11 +1,6 @@
 package com.api.doacaopontos.controller;
 
 import com.api.doacaopontos.model.ItemDoado;
-import com.api.doacaopontos.model.enuns.SelecaoCategoria;
-import com.api.doacaopontos.model.somaPontos.PontosCategoria;
-import com.api.doacaopontos.model.somaPontos.PontosEstetica;
-import com.api.doacaopontos.model.somaPontos.PontosEstrutura;
-import com.api.doacaopontos.model.somaPontos.PontosFuncional;
 import com.api.doacaopontos.services.ItemDoadosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,9 +33,14 @@ public class ItemDoadoController {
         return new ResponseEntity<>(itemDoado1, HttpStatus.CREATED);
     }
 
-    @PostMapping(path = "/{id}/finalizacao")
+    @PutMapping(path = "/{id}/finalizacao")
     public ResponseEntity<ItemDoado> pontosRecebedor(@RequestBody ItemDoado itemDoado) {
         return ResponseEntity.ok(itemDoadosService.pontosRecebedor(itemDoado));
+    }
+
+    @PutMapping(path = "/{id}/remuneracao")
+    public ResponseEntity<ItemDoado> pontosDoado (@RequestBody ItemDoado itemDoado) {
+        return ResponseEntity.ok(itemDoadosService.pontosDoador(itemDoado));
     }
 
     @PutMapping(path = "/{id}/doador")

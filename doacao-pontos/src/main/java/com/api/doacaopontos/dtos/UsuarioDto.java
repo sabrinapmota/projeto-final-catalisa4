@@ -17,25 +17,12 @@ public class UsuarioDto {
     private String nome;
 
     @NotBlank
-    @CPF
-    private
-    String cpf;
-
-    @NotBlank
     @Email
     private String email;
 
     @NotBlank
     @Size(max = 12)
     private String telefone;
-
-    @NotBlank
-    @Size(max = 8)
-    private String cep;
-    @NotBlank
-    private String endereco;
-    @NotBlank
-    private String bairro;
     @Size(max = 5)
     private Long pontos;
 }

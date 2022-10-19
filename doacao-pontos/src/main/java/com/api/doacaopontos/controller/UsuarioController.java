@@ -31,7 +31,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public Optional<UsuarioModel> buscarID(@PathVariable(value = "id") UUID id) {
+    public Optional<UsuarioModel> buscarID(@PathVariable(value = "id") Long id) {
         return usuarioService.buscarId(id);
     }
 
@@ -41,5 +41,5 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletarCadastro(@PathVariable(value = "id") UUID id) { usuarioService.deletarCadastro(id);}
+    public void deletarCadastro(@PathVariable(value = "id") Long id) { usuarioService.deletarCadastro(id);}
 }

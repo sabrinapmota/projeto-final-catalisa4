@@ -19,16 +19,17 @@ public class UsuarioService {
 
     public List<UsuarioDto> buscarTodos() {
         List<UsuarioModel> buscarDoadores = cadastroDoadorRepository.findAll();
-        return buscarDoadores.stream().map(cadastro -> new UsuarioDto(cadastro.getNome(),cadastro.getCpf(),cadastro.getEmail(),cadastro.getTelefone(),cadastro.getCep(), cadastro.getEndereco(),cadastro.getBairro(), cadastro.getPontos())).collect(Collectors.toList());
+        return buscarDoadores.stream().map(cadastro -> new UsuarioDto(cadastro.getNome(),
+                cadastro.getEmail(), cadastro.getTelefone(), cadastro.getPontos())).collect(Collectors.toList());
 
     }
 
-    public Optional<UsuarioModel> buscarId(UUID id) {
+    public Optional<UsuarioModel> buscarId(Long id) {
         return cadastroDoadorRepository.findById(id);
     }
 
     @Transactional
-   public UsuarioModel cadastrarDoador(UsuarioModel usuarioModel) {
+    public UsuarioModel cadastrarDoador(UsuarioModel usuarioModel) {
         return cadastroDoadorRepository.save(usuarioModel);
     }
 
@@ -38,7 +39,7 @@ public class UsuarioService {
     }
 
     @Transactional
-    public void deletarCadastro(UUID id) {
+    public void deletarCadastro(Long id) {
         cadastroDoadorRepository.deleteById(id);
     }
 }

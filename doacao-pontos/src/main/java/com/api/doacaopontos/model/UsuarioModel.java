@@ -1,5 +1,6 @@
 package com.api.doacaopontos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -17,16 +19,20 @@ import java.util.UUID;
 @Entity
 @Table(name = "TB_DOADOR")
 public class UsuarioModel implements Serializable {
-    private  Long id;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(nullable = false, length = 30)
+    private Long id;
+    @Column
     private String nome;
-        @Column
+    @Column
     @Email
     private String email;
     @Column(nullable = false, length = 12)
     private String telefone;
     @Column
     private Long pontos;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuarioModel", cascade = CascadeType.ALL)
+    private List<ItemDoado> itemDoados;
 }

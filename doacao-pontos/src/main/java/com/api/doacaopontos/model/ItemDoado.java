@@ -32,4 +32,8 @@ public class ItemDoado {
     private Long pontosDoador;
     @Column
     private Long pontosRecebedor;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private UsuarioModel usuarioModel;
 }

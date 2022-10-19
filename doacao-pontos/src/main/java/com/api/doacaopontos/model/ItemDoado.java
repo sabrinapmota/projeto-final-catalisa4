@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -22,7 +23,11 @@ public class ItemDoado {
     @Column
     private Long idPessoaDoadora;
     @Column
+    private String status;
+    @Column
     private LocalDate dataInicio;
+    @Column
+    private LocalDate dataTermino;
     @Column
     private Long idPessoaRecebedora;
     @Column

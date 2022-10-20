@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/doar")
+@RequestMapping(path = "/item-doado")
 public class ItemDoadoController {
 
     @Autowired
@@ -33,12 +33,12 @@ public class ItemDoadoController {
         return new ResponseEntity<>(itemDoado1, HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/{id}/finalizacao")
+    @PutMapping(path = "/{id}/pontos-beneficiario")
     public ResponseEntity<ItemDoado> pontosRecebedor(@RequestBody ItemDoado itemDoado) {
         return ResponseEntity.ok(itemDoadosService.pontosRecebedor(itemDoado));
     }
 
-    @PutMapping(path = "/{id}/remuneracao")
+    @PutMapping(path = "/{id}/pontos-doador")
     public ResponseEntity<ItemDoado> pontosDoado (@RequestBody ItemDoado itemDoado) {
         return ResponseEntity.ok(itemDoadosService.pontosDoador(itemDoado));
     }

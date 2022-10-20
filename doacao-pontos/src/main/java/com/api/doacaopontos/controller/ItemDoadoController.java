@@ -33,12 +33,12 @@ public class ItemDoadoController {
         return new ResponseEntity<>(itemDoado1, HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/{id}/pontos-beneficiario")
+    @PutMapping(path = "/{id}/pontuar-beneficiario")
     public ResponseEntity<ItemDoado> pontosRecebedor(@RequestBody ItemDoado itemDoado) {
         return ResponseEntity.ok(itemDoadosService.pontosRecebedor(itemDoado));
     }
 
-    @PutMapping(path = "/{id}/pontos-doador")
+    @PutMapping(path = "/{id}/finalizar-doacao")
     public ResponseEntity<ItemDoado> pontosDoado (@RequestBody ItemDoado itemDoado) {
         return ResponseEntity.ok(itemDoadosService.pontosDoador(itemDoado));
     }

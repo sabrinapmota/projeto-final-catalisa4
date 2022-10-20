@@ -1,6 +1,7 @@
 package com.api.doacaopontos.controller;
 
-import com.api.doacaopontos.dtos.UsuarioDto;
+import com.api.doacaopontos.dtos.UsuarioDtoEntrada;
+import com.api.doacaopontos.dtos.UsuarioDtoSaida;
 import com.api.doacaopontos.model.UsuarioModel;
 import com.api.doacaopontos.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +21,12 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping(path = "/cadastro")
-    public ResponseEntity<Object> cadastrar(@RequestBody @Valid UsuarioModel usuarioModel) {
-        UsuarioModel usuarioModel1 = usuarioService.cadastrarDoador(usuarioModel);
-        return new ResponseEntity<>(usuarioModel1,HttpStatus.CREATED);
+    public ResponseEntity<UsuarioDtoSaida> cadastrar(@RequestBody @Valid UsuarioDtoEntrada usuarioDtoEntrada ) {
+        return  ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.cadastrarDoador(usuarioDtoEntrada));
     }
 
     @GetMapping
-    public ResponseEntity<List<UsuarioDto>> buscartodos() {
+    public ResponseEntity<List<UsuarioDtoEntrada>> buscartodos() {
         return ResponseEntity.ok(usuarioService.buscarTodos());
     }
 

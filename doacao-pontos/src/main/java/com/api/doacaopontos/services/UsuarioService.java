@@ -1,6 +1,7 @@
 package com.api.doacaopontos.services;
 
-import com.api.doacaopontos.dtos.UsuarioDto;
+import com.api.doacaopontos.dtos.UsuarioDtoEntrada;
+import com.api.doacaopontos.dtos.UsuarioDtoSaida;
 import com.api.doacaopontos.model.UsuarioModel;
 import com.api.doacaopontos.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository cadastroDoadorRepository;
 
-    public List<UsuarioDto> buscarTodos() {
+    public List<UsuarioDtoEntrada> buscarTodos() {
         List<UsuarioModel> buscarDoadores = cadastroDoadorRepository.findAll();
-        return buscarDoadores.stream().map(cadastro -> new UsuarioDto(cadastro.getId(), cadastro.getNome(),
+        return buscarDoadores.stream().map(cadastro -> new UsuarioDtoEntrada(cadastro.getId(), cadastro.getNome(),
                 cadastro.getEmail(), cadastro.getTelefone(), cadastro.getPontos())).collect(Collectors.toList());
 
     }
@@ -28,9 +29,15 @@ public class UsuarioService {
     }
 
     @Transactional
-    public UsuarioModel cadastrarDoador(UsuarioModel usuarioModel) {
+    public UsuarioDtoSaida cadastrarDoador(UsuarioDtoEntrada usuarioDtoEntrada) {
+        UsuarioModel usuarioModel = new UsuarioModel();
+        usuarioModel.setNome(usuarioDtoEntrada.getNome());
+        usuarioModel.setEmail(usuarioDtoEntrada.getEmail());
+        usuarioModel.setTelefone(usuarioDtoEntrada.getTelefone());;
         usuarioModel.setPontos(0L);
-        return cadastroDoadorRepository.save(usuarioModel);
+        cadastroDoadorRepository.save(usuarioModel);
+
+        return new UsuarioDtoSaida(usuarioDtoEntrada.getId(), usuarioDtoEntrada.getNome(), usuarioDtoEntrada.getEmail(), usuarioDtoEntrada.getTelefone());
     }
 
     @Transactional

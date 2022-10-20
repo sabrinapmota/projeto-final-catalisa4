@@ -41,8 +41,7 @@ public class ItemDoadosService {
 
     public ItemDoado pontosDoador(ItemDoado itemDoado) {
         if (itemDoado.getIdPessoaRecebedora() != null) {
-            itemDoado.setDataTermino(LocalDate.now());
-            itemDoado.setStatus("FECHADO");
+            itemDoado.setStatus("RESERVADO");
         }if(itemDoado.getPontosDoador()>50L)
              throw  new RuntimeException("Erro: O limite de pontos é 50");
         Long pontos = itemDoado.getPontosDoador();
@@ -52,8 +51,10 @@ public class ItemDoadosService {
     }
 
     public ItemDoado pontosRecebedor(ItemDoado itemDoado) {
-        if(itemDoado.getPontosRecebedor()>50L)
-            throw  new RuntimeException("Erro: O limite de pontos é 50");
+        if(itemDoado.getPontosRecebedor()>50L){
+            throw  new RuntimeException("Erro: O limite de pontos é 50");}
+        else { itemDoado.setStatus("FECHADO");
+            itemDoado.setDataTermino(LocalDate.now());}
         Long pontos = itemDoado.getPontosRecebedor();
         UsuarioModel usuario = usuarioService.buscarId(itemDoado.getUsuarioModel().getId()).orElseThrow();
         usuarioService.incrementaPontos(usuario, pontos);

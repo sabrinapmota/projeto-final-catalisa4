@@ -6,8 +6,6 @@ import com.api.doacaopontos.repository.ItemDoadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityNotFoundException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -39,10 +37,10 @@ public class ItemDoadosService {
         itemDoadoRepository.deleteById(id);
     }
 
-    public ItemDoado pontosDoador(ItemDoado itemDoado) {
+    public ItemDoado reservarItem(ItemDoado itemDoado) {
         if (itemDoado.getIdPessoaRecebedora() != null) {
             itemDoado.setStatus("RESERVADO");
-        }if(itemDoado.getPontosDoador()>50L)
+        }if(itemDoado.getPontosRecebedor()>50L)
              throw  new RuntimeException("Erro: O limite de pontos é 50");
         Long pontos = itemDoado.getPontosDoador();
         UsuarioModel usuario = usuarioService.buscarId(itemDoado.getUsuarioModel().getId()).orElseThrow();
@@ -50,8 +48,8 @@ public class ItemDoadosService {
         return itemDoadoRepository.save(itemDoado);
     }
 
-    public ItemDoado pontosRecebedor(ItemDoado itemDoado) {
-        if(itemDoado.getPontosRecebedor()>50L){
+    public ItemDoado fecharItem(ItemDoado itemDoado) {
+        if(itemDoado.getPontosDoador()>50L){
             throw  new RuntimeException("Erro: O limite de pontos é 50");}
         else { itemDoado.setStatus("FECHADO");
             itemDoado.setDataTermino(LocalDate.now());}

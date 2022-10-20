@@ -33,19 +33,14 @@ public class ItemDoadoController {
         return new ResponseEntity<>(itemDoado1, HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/{id}/pontuar-beneficiario")
-    public ResponseEntity<ItemDoado> pontosRecebedor(@RequestBody ItemDoado itemDoado) {
-        return ResponseEntity.ok(itemDoadosService.pontosRecebedor(itemDoado));
-    }
-
-    @PutMapping(path = "/{id}/finalizar-doacao")
+    @PostMapping(path = "/{id}/reservar-doacao")
     public ResponseEntity<ItemDoado> pontosDoado (@RequestBody ItemDoado itemDoado) {
-        return ResponseEntity.ok(itemDoadosService.pontosDoador(itemDoado));
+        return ResponseEntity.ok(itemDoadosService.reservarItem(itemDoado));
     }
 
-    @PutMapping(path = "/{id}/doador")
+    @PostMapping(path = "/{id}/finalizar-doador")
     public ResponseEntity<ItemDoado> pontosDoador(@RequestBody ItemDoado itemDoado) {
-        return ResponseEntity.ok(itemDoadosService.pontosDoador(itemDoado));
+        return ResponseEntity.ok(itemDoadosService.fecharItem(itemDoado));
     }
 
     @DeleteMapping(path = "/{id}")

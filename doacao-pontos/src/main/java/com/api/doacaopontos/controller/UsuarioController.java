@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
@@ -25,21 +25,21 @@ public class UsuarioController {
         return new ResponseEntity<>(usuarioModel1,HttpStatus.CREATED);
     }
 
-    @GetMapping( path = "/consultarUsuarios")
+    @GetMapping
     public ResponseEntity<List<UsuarioDto>> buscartodos() {
         return ResponseEntity.ok(usuarioService.buscarTodos());
     }
 
-    @GetMapping("/consultarUsuarios/{id}")
+    @GetMapping("/{id}")
     public Optional<UsuarioModel> buscarID(@PathVariable(value = "id") Long id) {
         return usuarioService.buscarId(id);
     }
 
-    @PutMapping("/alterarCadastro/{id}")
+    @PutMapping("/{id}")
     public UsuarioModel alterarCadastro(@RequestBody UsuarioModel usuarioModel) {
         return usuarioService.alterarCadastro(usuarioModel);
     }
 
-    @DeleteMapping("/deletar/{id}")
+    @DeleteMapping("/{id}")
     public void deletarCadastro(@PathVariable(value = "id") Long id) { usuarioService.deletarCadastro(id);}
 }

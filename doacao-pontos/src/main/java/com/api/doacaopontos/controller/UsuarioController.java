@@ -41,5 +41,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletarCadastro(@PathVariable(value = "id") Long id) { usuarioService.deletarCadastro(id);}
+    public void deletarCadastro(@PathVariable(value = "id") Long id) {
+        usuarioService.deletarCadastro(id);
+    }
 }

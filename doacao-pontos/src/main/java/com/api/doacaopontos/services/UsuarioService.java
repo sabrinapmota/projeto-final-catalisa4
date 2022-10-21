@@ -31,13 +31,14 @@ public class UsuarioService {
     @Transactional
     public UsuarioDtoSaida cadastrarDoador(UsuarioDtoEntrada usuarioDtoEntrada) {
         UsuarioModel usuarioModel = new UsuarioModel();
+        usuarioModel.setId(usuarioDtoEntrada.getId());
         usuarioModel.setNome(usuarioDtoEntrada.getNome());
         usuarioModel.setEmail(usuarioDtoEntrada.getEmail());
         usuarioModel.setTelefone(usuarioDtoEntrada.getTelefone());;
         usuarioModel.setPontos(0L);
         cadastroDoadorRepository.save(usuarioModel);
 
-        return new UsuarioDtoSaida(usuarioDtoEntrada.getId(), usuarioDtoEntrada.getNome(), usuarioDtoEntrada.getEmail(), usuarioDtoEntrada.getTelefone());
+        return new UsuarioDtoSaida(usuarioModel.getId(), usuarioDtoEntrada.getNome(), usuarioDtoEntrada.getEmail(), usuarioDtoEntrada.getTelefone());
     }
 
     @Transactional

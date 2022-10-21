@@ -45,9 +45,6 @@ public class ItemDoadoController {
 
     @GetMapping(path = "/status/{status}")
     public List<ItemDoado> buscarPorStatus(@PathVariable String status){ return itemDoadosService.buscarStatus(status);}
-
-    @GetMapping(path = "/nome/{nome}")
-    public List<ItemDoado> buscarPorNome(@PathVariable String nome){ return itemDoadosService.buscarnNome(nome);}
     @DeleteMapping(path = "/{id}")
     public void deletarItem(@PathVariable Long id) {itemDoadosService.deletarItem(id);}
 }

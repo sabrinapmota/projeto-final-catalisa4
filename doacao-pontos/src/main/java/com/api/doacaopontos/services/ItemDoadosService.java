@@ -36,6 +36,7 @@ public class ItemDoadosService {
 
 
     public List<ItemDoado> buscarStatus(String status){return itemDoadoRepository.findByStatus(status);}
+    public List<ItemDoado> buscarnNome(String nome){return itemDoadoRepository.findByNome(nome);}
 
     public void deletarItem(Long id) {
         itemDoadoRepository.deleteById(id);

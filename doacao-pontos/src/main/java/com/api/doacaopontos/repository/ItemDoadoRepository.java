@@ -8,4 +8,6 @@ import java.util.List;
 public interface ItemDoadoRepository extends JpaRepository<ItemDoado,Long> {
 
     List<ItemDoado> findByStatus (String status);
+    List<ItemDoado> findByNome (String nome);
+
 }

@@ -1,5 +1,6 @@
 package com.api.doacaopontos.controller;
 
+import com.api.doacaopontos.dtos.ItemSaidaDto;
 import com.api.doacaopontos.model.ItemDoado;
 import com.api.doacaopontos.services.ItemDoadosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class ItemDoadoController {
     ItemDoadosService itemDoadosService;
 
     @GetMapping
-    public ResponseEntity<List<ItemDoado>> exibirItens(){
-        return ResponseEntity.ok(itemDoadosService.listarTodos());
+   public ResponseEntity<List<ItemSaidaDto>> mostrarUsuarios() {
+        return ResponseEntity.ok(itemDoadosService.buscarTodos());
     }
 
     @GetMapping(path = "/{id}")

@@ -34,6 +34,9 @@ public class ItemDoadosService {
         return itemDoadoRepository.save(itemDoado);
     }
 
+
+    public List<ItemDoado> buscarStatus(String status){return itemDoadoRepository.findByStatus(status);}
+
     public void deletarItem(Long id) {
         itemDoadoRepository.deleteById(id);
     }

@@ -43,6 +43,8 @@ public class ItemDoadoController {
         return ResponseEntity.ok(itemDoadosService.fecharItem(itemDoado));
     }
 
+    @GetMapping(path = "/status/{status}")
+    public List<ItemDoado> buscarPorStatus(@PathVariable String status){ return itemDoadosService.buscarStatus(status);}
     @DeleteMapping(path = "/{id}")
     public void deletarItem(@PathVariable Long id) {itemDoadosService.deletarItem(id);}
 }

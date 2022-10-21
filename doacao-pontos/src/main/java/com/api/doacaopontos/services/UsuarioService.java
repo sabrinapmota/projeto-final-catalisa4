@@ -37,7 +37,6 @@ public class UsuarioService {
         usuarioModel.setTelefone(usuarioDtoEntrada.getTelefone());;
         usuarioModel.setPontos(0L);
         cadastroDoadorRepository.save(usuarioModel);
-
         return new UsuarioDtoSaida(usuarioModel.getId(), usuarioDtoEntrada.getNome(), usuarioDtoEntrada.getEmail(), usuarioDtoEntrada.getTelefone());
     }
 
@@ -45,6 +44,7 @@ public class UsuarioService {
     public UsuarioModel alterarCadastro(UsuarioModel usuarioModel) {
         return cadastroDoadorRepository.save(usuarioModel);
     }
+
 
     @Transactional
     public void deletarCadastro(Long id) {

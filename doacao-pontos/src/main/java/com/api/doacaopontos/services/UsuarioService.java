@@ -34,7 +34,7 @@ public class UsuarioService {
         usuarioModel.setId(usuarioDtoEntrada.getId());
         usuarioModel.setNome(usuarioDtoEntrada.getNome());
         usuarioModel.setEmail(usuarioDtoEntrada.getEmail());
-        usuarioModel.setTelefone(usuarioDtoEntrada.getTelefone());;
+        usuarioModel.setTelefone(usuarioDtoEntrada.getTelefone());
         usuarioModel.setPontos(0L);
         cadastroDoadorRepository.save(usuarioModel);
         return new UsuarioDtoSaida(usuarioModel.getId(), usuarioDtoEntrada.getNome(), usuarioDtoEntrada.getEmail(), usuarioDtoEntrada.getTelefone());
@@ -52,7 +52,7 @@ public class UsuarioService {
     }
 
     @Transactional
-    public UsuarioModel incrementaPontos(UsuarioModel usuarioModel, Long pontos){
+    public UsuarioModel incrementaPontos(UsuarioModel usuarioModel, Long pontos) {
         usuarioModel.setPontos(usuarioModel.getPontos() + pontos);
         return cadastroDoadorRepository.save(usuarioModel);
     }

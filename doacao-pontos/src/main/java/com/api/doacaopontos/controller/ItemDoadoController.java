@@ -18,23 +18,23 @@ public class ItemDoadoController {
     ItemDoadosService itemDoadosService;
 
     @GetMapping
-    public ResponseEntity<List<ItemDoado>> exibirItens(){
+    public ResponseEntity<List<ItemDoado>> exibirItens() {
         return ResponseEntity.ok(itemDoadosService.listarTodos());
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Optional<ItemDoado>>exibirPorId(@PathVariable Long id) {
+    public ResponseEntity<Optional<ItemDoado>> exibirPorId(@PathVariable Long id) {
         return ResponseEntity.ok(itemDoadosService.buscarId(id));
     }
 
     @PostMapping
-    public ResponseEntity<ItemDoado> cadastroItem(@RequestBody ItemDoado itemDoado){
-        ItemDoado itemDoado1 = itemDoadosService.cadastrar( itemDoado);
+    public ResponseEntity<ItemDoado> cadastroItem(@RequestBody ItemDoado itemDoado) {
+        ItemDoado itemDoado1 = itemDoadosService.cadastrar(itemDoado);
         return new ResponseEntity<>(itemDoado1, HttpStatus.CREATED);
     }
 
     @PostMapping(path = "/{id}/reservar-doacao")
-    public ResponseEntity<ItemDoado> pontosDoado (@RequestBody ItemDoado itemDoado) {
+    public ResponseEntity<ItemDoado> pontosDoado(@RequestBody ItemDoado itemDoado) {
         return ResponseEntity.ok(itemDoadosService.reservarItem(itemDoado));
     }
 
@@ -44,7 +44,12 @@ public class ItemDoadoController {
     }
 
     @GetMapping(path = "/status/{status}")
-    public List<ItemDoado> buscarPorStatus(@PathVariable String status){ return itemDoadosService.buscarStatus(status);}
+    public List<ItemDoado> buscarPorStatus(@PathVariable String status) {
+        return itemDoadosService.buscarStatus(status);
+    }
+
     @DeleteMapping(path = "/{id}")
-    public void deletarItem(@PathVariable Long id) {itemDoadosService.deletarItem(id);}
+    public void deletarItem(@PathVariable Long id) {
+        itemDoadosService.deletarItem(id);
+    }
 }

@@ -35,7 +35,9 @@ public class ItemDoadosService {
     }
 
 
-    public List<ItemDoado> buscarStatus(String status){return itemDoadoRepository.findByStatus(status);}
+    public List<ItemDoado> buscarStatus(String status) {
+        return itemDoadoRepository.findByStatus(status);
+    }
 
     public void deletarItem(Long id) {
         itemDoadoRepository.deleteById(id);
@@ -44,8 +46,9 @@ public class ItemDoadosService {
     public ItemDoado reservarItem(ItemDoado itemDoado) {
         if (itemDoado.getIdPessoaRecebedora() != null) {
             itemDoado.setStatus("RESERVADO");
-        }if(itemDoado.getPontosRecebedor()>50L)
-             throw  new RuntimeException("Erro: O limite de pontos é 50");
+        }
+        if (itemDoado.getPontosRecebedor() > 50L)
+            throw new RuntimeException("Erro: O limite de pontos é 50");
         Long pontos = itemDoado.getPontosDoador();
         UsuarioModel usuario = usuarioService.buscarId(itemDoado.getUsuarioModel().getId()).orElseThrow();
         usuarioService.incrementaPontos(usuario, pontos);
@@ -53,10 +56,12 @@ public class ItemDoadosService {
     }
 
     public ItemDoado fecharItem(ItemDoado itemDoado) {
-        if(itemDoado.getPontosDoador()>50L){
-            throw  new RuntimeException("Erro: O limite de pontos é 50");}
-        else { itemDoado.setStatus("FECHADO");
-            itemDoado.setDataTermino(LocalDate.now());}
+        if (itemDoado.getPontosDoador() > 50L) {
+            throw new RuntimeException("Erro: O limite de pontos é 50");
+        } else {
+            itemDoado.setStatus("FECHADO");
+            itemDoado.setDataTermino(LocalDate.now());
+        }
         Long pontos = itemDoado.getPontosRecebedor();
         UsuarioModel usuario = usuarioService.buscarId(itemDoado.getUsuarioModel().getId()).orElseThrow();
         usuarioService.incrementaPontos(usuario, pontos);

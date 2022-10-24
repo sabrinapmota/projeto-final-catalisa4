@@ -1,7 +1,9 @@
 package com.api.doacaopontos.controller;
 
 import com.api.doacaopontos.dtos.ItemSaidaDto;
+import com.api.doacaopontos.dtos.SaidaPorNomeDto;
 import com.api.doacaopontos.model.ItemDoado;
+import com.api.doacaopontos.repository.ItemDoadoRepository;
 import com.api.doacaopontos.services.ItemDoadosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/item-doado")
@@ -17,6 +20,11 @@ public class ItemDoadoController {
 
     @Autowired
     ItemDoadosService itemDoadosService;
+
+    private final  ItemDoadoRepository itemDoadoRepository;
+
+    public ItemDoadoController( ItemDoadoRepository itemDoadoRepository){
+        this.itemDoadoRepository = itemDoadoRepository;}
 
     @GetMapping
    public ResponseEntity<List<ItemSaidaDto>> mostrarUsuarios() {
@@ -48,7 +56,8 @@ public class ItemDoadoController {
     public List<ItemDoado> buscarPorStatus(@PathVariable String status){ return itemDoadosService.buscarStatus(status);}
 
     @GetMapping(path = "/nome/{nome}")
-    public List<ItemDoado> buscarPorNome(@PathVariable String nome){ return itemDoadosService.buscarNome(nome);}
+    public List<ItemSaidaDto> buscarPorNome(@PathVariable String nome){
+        return this.itemDoadoRepository.findByNome(nome).stream().map(SaidaPorNomeDto::convert).collect(Collectors.toList());}
     @DeleteMapping(path = "/{id}")
     public void deletarItem(@PathVariable Long id) {itemDoadosService.deletarItem(id);}
 }

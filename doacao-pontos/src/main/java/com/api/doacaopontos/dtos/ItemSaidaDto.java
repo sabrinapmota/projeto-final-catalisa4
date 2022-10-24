@@ -20,6 +20,7 @@ public class ItemSaidaDto {
     private String status;
     private LocalDate dataInicio;
     private LocalDate dataTermino;
+    private String nomeDoador;
     private String email;
 
     private String telefone;
@@ -32,6 +33,7 @@ public class ItemSaidaDto {
         this.status = itemDoado.getStatus();
         this.dataInicio = itemDoado.getDataInicio();
         this.dataTermino = itemDoado.getDataTermino();
+        this.nomeDoador = itemDoado.getUsuarioModel().getNome();
         this.email = itemDoado.getUsuarioModel().getEmail();
         this.telefone = itemDoado.getUsuarioModel().getTelefone();
     }

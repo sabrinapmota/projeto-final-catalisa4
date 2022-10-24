@@ -53,7 +53,8 @@ public class ItemDoadoController {
     }
 
     @GetMapping(path = "/status/{status}")
-    public List<ItemDoado> buscarPorStatus(@PathVariable String status){ return itemDoadosService.buscarStatus(status);}
+    public List<ItemSaidaDto> buscarPorStatus(@PathVariable String status)
+    { return this.itemDoadoRepository.findByStatus(status).stream().map(SaidaPorNomeDto::convert).collect(Collectors.toList());}
 
     @GetMapping(path = "/nome/{nome}")
     public List<ItemSaidaDto> buscarPorNome(@PathVariable String nome){

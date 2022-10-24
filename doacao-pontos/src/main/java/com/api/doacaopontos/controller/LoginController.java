@@ -29,7 +29,7 @@ public class LoginController {
         return ResponseEntity.ok(service.buscarId(userId));
     }
 
-    @PostMapping
+    @PostMapping(path = "/create")
     public ResponseEntity<LoginModel> cadastrarLogin(@RequestBody LoginModel loginModel){
         return new ResponseEntity<>(service.cadastrar(loginModel), HttpStatus.CREATED);
     }

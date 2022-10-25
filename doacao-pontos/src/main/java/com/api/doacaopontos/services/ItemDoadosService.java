@@ -1,6 +1,7 @@
 package com.api.doacaopontos.services;
 
 import com.api.doacaopontos.dtos.ItemSaidaDto;
+import com.api.doacaopontos.dtos.SaidaNomeDto;
 import com.api.doacaopontos.model.ItemDoado;
 import com.api.doacaopontos.model.UsuarioModel;
 import com.api.doacaopontos.repository.ItemDoadoRepository;
@@ -20,9 +21,9 @@ public class ItemDoadosService {
     @Autowired
     UsuarioService usuarioService;
 
-    public List<ItemSaidaDto> buscarTodos() {
-        List<ItemDoado> usuarios = itemDoadoRepository.findAll();
-        return ItemSaidaDto.convert(usuarios);
+    public List<SaidaNomeDto> buscarTodos() {
+        List<ItemDoado> itemDoados = itemDoadoRepository.findAll();
+        return SaidaNomeDto.convert(itemDoados);
     }
 
 

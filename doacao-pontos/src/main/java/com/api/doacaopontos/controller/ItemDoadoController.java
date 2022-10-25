@@ -1,6 +1,7 @@
 package com.api.doacaopontos.controller;
 
 import com.api.doacaopontos.dtos.ItemSaidaDto;
+import com.api.doacaopontos.dtos.SaidaNomeDto;
 import com.api.doacaopontos.dtos.SaidaPorNomeDto;
 import com.api.doacaopontos.model.ItemDoado;
 import com.api.doacaopontos.repository.ItemDoadoRepository;
@@ -28,7 +29,7 @@ public class ItemDoadoController {
         this.itemDoadoRepository = itemDoadoRepository;}
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @GetMapping
-   public ResponseEntity<List<ItemSaidaDto>> mostrarUsuarios() {
+   public ResponseEntity<List<SaidaNomeDto>> mostrarItems() {
         return ResponseEntity.ok(itemDoadosService.buscarTodos());
     }
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")

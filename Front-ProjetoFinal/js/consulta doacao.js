@@ -1,14 +1,13 @@
-const form = document.getElementById("cadastro-doacao")
+const doar = document.getElementById("cadastro-doacao")
 
-//table - trazer usuários cadastrados na tela
 fetch("http://localhost:8080/item-doado").then((data)=>{
     return data.json();
-  }).then((buscarTodos) =>{
+  }).then((mostrarItems) =>{
       let data1 = "";
-      todosUsuarios.map((values) =>{
+      mostrarItems.map((values) =>{
           data1 += `
           <tbody>
-              <tr>
+              <tr align="center">
                   <th scope="row">${values.id} </td>
                   <td>${values.nome}</td> 
                   <td>${values.descricao}</td> 
@@ -23,6 +22,6 @@ fetch("http://localhost:8080/item-doado").then((data)=>{
           </tbody>
           `
       })
-      document.getElementById("usuarioDados").innerHTML = data1;
-      console.log(todosUsuarios);
+      document.getElementById("ItensDados").innerHTML = data1;
+      console.log(mostrarItems);
   })

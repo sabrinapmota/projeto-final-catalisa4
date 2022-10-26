@@ -1,6 +1,5 @@
 const form = document.getElementById("table-consulta")
 
-//table - trazer usuários cadastrados na tela
 fetch("http://localhost:8080/usuarios").then((data)=>{
     return data.json();
   }).then((todosUsuarios) =>{

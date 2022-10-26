@@ -36,11 +36,11 @@ public class ItemDoadoServiceTeste {
         itemDoado = new ItemDoado(1L, "bicicleta", "nova", 1L, "aberta,", data1,data2, 2L, 30L, 50L );
     }
 
-    @Test
-    void exibierItemsTest(){
+     /*@Test
+   void exibierItemsTest(){
         List<ItemSaidaDto> todosUsuarios = itemDoadosService.buscarTodos();
         Assertions.assertTrue((todosUsuarios.isEmpty()));
-}
+}*/
 
     @Test
     void exibierItemIdTest(){

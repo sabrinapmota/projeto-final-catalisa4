@@ -1,9 +1,9 @@
-const doar = document.getElementById("cadastro-doacao")
+const doacao = document.getElementById("cadastro-doacao")
 
-doar.addEventListener('submit', event => { 
+doacao.addEventListener('submit', event => { 
     event.preventDefault();
 
-    const formData = new FormData(doar);  
+    const formData = new FormData(doacao);  
     const data = Object.fromEntries(formData);
 
     fetch("http://localhost:8080/usuarios/item-doado", {

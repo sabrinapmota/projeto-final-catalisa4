@@ -1,4 +1,3 @@
-alert("Estou funcionando")
 
 const user = document.getElementById("cadastro-users")
 

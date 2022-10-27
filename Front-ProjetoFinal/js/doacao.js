@@ -6,7 +6,7 @@ doacao.addEventListener('submit', event => {
     const formData = new FormData(doacao);  
     const data = Object.fromEntries(formData);
 
-    fetch("http://localhost:8080/usuarios/item-doado", {
+    fetch("http://localhost:8080/item-doado", {
         method: 'POST',
         headers: {
             'Content-Type':'application/json'

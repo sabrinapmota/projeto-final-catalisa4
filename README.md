@@ -34,7 +34,8 @@ doar sem que tenha muitas burocracias, o sistema contem no registro de seus usua
 ![image](https://user-images.githubusercontent.com/97555758/198349658-de400288-7f53-477c-b0c8-cc8d7f568390.png)
 + metodo que onde é listado por status os item referente a situação podendo ser ABERTO, RESERVADO E FECHADO
 ![image](https://user-images.githubusercontent.com/97555758/198349813-b7b23399-75ba-42f4-af95-2908a1f50348.png)
-+ metodo onde acontece a reserva do item onde no campo a pessoa recebedora coloca seu id e pontua o dono do item q ela recebeu em ate 50 pontos
++ metodo onde acontece a reserva do item onde no campo a pessoa 
++ recebedora coloca seu id e pontua o dono do item q ela recebeu em ate 50 pontos
 ![image](https://user-images.githubusercontent.com/97555758/198350121-a4dd0199-8a50-4daf-beee-7773af660663.png)
 + metodo onde acontece a finalização do item onde no campo a pessoa doadora pontua a pessoa que recebeu o item em ate 50 pontos
 ![image](https://user-images.githubusercontent.com/97555758/198350166-a3bd4c42-d5cd-4024-b797-c2f9737d1b81.png)

@@ -1,6 +1,11 @@
+# Projeto: Doação e recebimentos de items
+
 # Sobre o projeto
 
 Uma api desenvolvida como um projeto final de pratica de curso no programa de formação da zup innovation feita em back-end e front-end, api desenvolvida para que pessoas que tenham dificuldade de achar pessoas para doar seus itens parados e para pessoas que não conseguem achar items com facilidade.
+
+Api pensada e desenvolvida para que as pessoas consigam ter um meio que facilite a comunicação entre as pessoas que tem interesse em comum sobre o item que desejam
+doar sem que tenha muitas burocracias, o sistema contem no registro de seus usuarios meios de contato para que eles possam entrar num comum acordo para efetuar a doação. 
 
 
 # Funçoes do projeto

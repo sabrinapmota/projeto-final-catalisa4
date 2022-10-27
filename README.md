@@ -15,7 +15,7 @@ Uma api desenvolvida como um projeto final de pratica de curso no programa de fo
 # Requisitos para consumo
 
 + clonar repositorio https://github.com/sabrinapmota/projeto-final-catalisa4
-+ ter uma ideia para rodar Spring boot em java(recomendo intellij)
++ ter uma ide para rodar Spring boot em java(recomendo intellij)
 + um container para comunicar com o banco
 + banco de dados relacional
 + postman

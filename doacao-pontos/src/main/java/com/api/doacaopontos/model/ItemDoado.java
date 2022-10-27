@@ -1,5 +1,6 @@
 package com.api.doacaopontos.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Table (name = "doacao")
 public class ItemDoado {
 

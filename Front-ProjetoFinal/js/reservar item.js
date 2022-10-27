@@ -1,28 +1,23 @@
-const reservar = document.getElementById("cadastro-doacao")
+const reserva = document.getElementById("reservar")
 
-fetch("http://localhost:8080/item-doado/{id}/reservar-doacao").then((data)=>{
-    return data.json();
-  }).then((mostrarItems) =>{
-      let data1 = "";
-      mostrarItems.map((values) =>{
-          data1 += `
-          <tbody>
-              <tr align="center">
-                  <th scope="row">${values.id} </td>
-                  <td>${values.nome}</td> 
-                  <td>${values.descricao}</td> 
-                  <td>${values.idPessoaDoadora} </td>
-                  <td>${values.status}</td> 
-                  <td>${values.dataInicio}</td> 
-                  <td>${values.dataTermino}</td>
-                  <td>${values.idPessoaRecebedora}</td>
-                  <td>${values.pontosDoador}</td>
-                  <td>${values.pontosRecebedor}</td>
-                  <td><input type="checkbox"></td>
-              </tr>
-          </tbody>
-          `
-      })
-      document.getElementById("ItensDados").innerHTML = data1;
-      console.log(mostrarItems);
-  })
+reserva.addEventListener('submit', event => { 
+    event.preventDefault();
+
+    const formData = new FormData(reserva);  
+    const data = Object.fromEntries(formData);
+
+    fetch("http://localhost:8080/item-doado/{id}/reservar-doacao", {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(res => res.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+});
+
+function msg() {
+    alert("Salvo com sucesso!");
+    window.location.reload(true);
+  }

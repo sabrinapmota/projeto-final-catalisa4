@@ -1,9 +1,9 @@
 const doacao = document.getElementById("cadastro-doacao")
 
-doacao.addEventListener('submit', event => { 
+fimDoar.addEventListener('submit', event => { 
     event.preventDefault();
 
-    const formData = new FormData(doacao);  
+    const formData = new FormData(fimDoar);  
     const data = Object.fromEntries(formData);
 
     console.log(data)
@@ -18,5 +18,10 @@ doacao.addEventListener('submit', event => {
         .then(data => console.log(data))
         .catch(error => console.log(error));
 });
+
+function msg() {
+    alert("Salvo com sucesso!");
+    window.location.reload(true);
+  }
 
 

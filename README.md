@@ -46,3 +46,10 @@ Uma api desenvolvida como um projeto final de pratica de curso no programa de fo
 #Front-end:
 + JS/HTML
 + Bootstrap
+
+#Equipe:
+
++ Alunos/desenvolvedores: Sabrina, Max, Marcio e William.
++ Tec Leader/Professores: Cryspim e Joyce.
++ Scrum Master/ Professora: Carol.
++ P.O/ Mentores: Iris e Rafael.

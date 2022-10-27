@@ -32,7 +32,7 @@ public class ItemDoadosService {
     }
 
     public ItemDoado cadastrar(ItemDoado itemDoado) {
-       itemDoado.getUsuarioModel().setId(itemDoado.getIdPessoaDoadora());
+        itemDoado.setIdPessoaDoadora(itemDoado.getUsuarioModel().getId());
         itemDoado.setStatus("ABERTO");
         itemDoado.setDataInicio(LocalDate.now());
         return itemDoadoRepository.save(itemDoado);

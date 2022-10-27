@@ -41,6 +41,7 @@
   </div>
   </nav>
 <h1 class="text-center ">Cadastro de Doações</h1>
+
 <form id="cadastro-doacao">
 <div class="mb-3">
     <label class="form-label">Nome do Item</label>
@@ -51,36 +52,15 @@
     <input type="text" name = "descricao" class="form-control" id="descricao" placeholder="Informe a descricao">
 </div>
 <div class="mb-3">
-    <label class="form-label">ID Doador</label>
-    <input type="text" name = "idPessoaDoadora" class="form-control" id="idPessoaDoadora" placeholder="Informe o ID da Pessoa Doadora">
-</div>
-<div class="mb-3">
-  <label class="form-label">status</label>
-  <input type="text" name = "status" class="form-control" id="status" placeholder="status">
-</div>
-<div class="mb-3">
-  <label class="form-label">dataInicio</label>
-  <input type="text" name = "dataInicio" class="form-control" id="dataInicio" placeholder="dataInicio">
-</div>
-<div class="mb-3">
-  <label class="form-label">dataTermino</label>
-  <input type="text" name = "dataTermino" class="form-control" id="dataTermino" placeholder="dataTermino">
-</div>
-<div class="mb-3">
-  <label class="form-label">idPessoaRecebedora</label>
-  <input type="text" name = "idPessoaRecebedora" class="form-control" id="idPessoaRecebedora" placeholder="idPessoaRecebedora">
-</div>
-<div class="mb-3">
-  <label class="form-label">pontosDoador</label>
-  <input type="text" name = "pontosDoador" class="form-control" id="pontosDoador" placeholder="pontosDoador">
-</div>
-<div class="mb-3">
-  <label class="form-label">pontosRecebedor</label>
-  <input type="text" name = "pontosRecebedor" class="form-control" id="pontosRecebedor" placeholder="pontosRecebedor">
+  <label class="form-label">usuarioModel</label>
+  <input type="number" name = "usuarioModel" class="form-control" id="usuarioModel" placeholder="usuarioModel">
 </div>
 
 <button type="submit" onclick="msg()" class="btn btn-lg btn-primary m-3 d-grid gap-2 col-4 mx-auto">Enviar</button>
+
 </form>
+
 <script src="js/doacao.js" ></script>
+
 </body>
 </html>

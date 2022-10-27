@@ -6,6 +6,8 @@ doacao.addEventListener('submit', event => {
     const formData = new FormData(doacao);  
     const data = Object.fromEntries(formData);
 
+    console.log(data)
+
     fetch("http://localhost:8080/item-doado", {
         method: 'POST',
         headers: {
@@ -17,7 +19,4 @@ doacao.addEventListener('submit', event => {
         .catch(error => console.log(error));
 });
 
-function msg() {
-    alert("Salvo com sucesso!");
-    window.location.reload(true);
-  }
+

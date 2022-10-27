@@ -18,6 +18,7 @@ fetch("http://localhost:8080/item-doado").then((data)=>{
                   <td>${values.idPessoaRecebedora}</td>
                   <td>${values.pontosDoador}</td>
                   <td>${values.pontosRecebedor}</td>
+                  <td><input type="checkbox"></td>
               </tr>
           </tbody>
           `

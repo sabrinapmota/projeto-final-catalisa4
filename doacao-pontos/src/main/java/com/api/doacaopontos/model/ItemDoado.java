@@ -34,7 +34,7 @@ public class ItemDoado {
     @Column
     private Long pontosRecebedor;
 
-    public ItemDoado(Long id, String nome, String descricao, Long idPessoaDoadora, String status, LocalDate dataInicio, LocalDate dataTermino, Long idPessoaRecebedora, Long pontosDoador, Long pontosRecebedor) {
+    /*public ItemDoado(Long id, String nome, String descricao, Long idPessoaDoadora, String status, LocalDate dataInicio, LocalDate dataTermino, Long idPessoaRecebedora, Long pontosDoador, Long pontosRecebedor) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -45,7 +45,7 @@ public class ItemDoado {
         this.idPessoaRecebedora = idPessoaRecebedora;
         this.pontosDoador = pontosDoador;
         this.pontosRecebedor = pontosRecebedor;
-    }
+    }*/
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")

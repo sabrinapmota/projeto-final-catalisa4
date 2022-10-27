@@ -26,12 +26,17 @@ doar sem que tenha muitas burocracias, o sistema contem no registro de seus usua
 + postman
 
 # projeto em uso
-
++ metodo onde tem o cadastro de usuario onde ele insere seu nome, email e telefone
 ![image](https://user-images.githubusercontent.com/97555758/198348806-a229c631-2291-44ca-87b8-4a16ea06d88b.png)
++ metodo onde mostra em forma de tabelas os usuarios cadastrado contendo id, nome, email, telefone e pontos
 ![image](https://user-images.githubusercontent.com/97555758/198348998-d5e5b2f9-5ab7-42d2-8e9a-468f0bd8a725.png)
++ metodo onde ocorre o cadastro do item que será disponivel para doação com nome, descrição e a referencia da pessoa que esta doando
 ![image](https://user-images.githubusercontent.com/97555758/198349658-de400288-7f53-477c-b0c8-cc8d7f568390.png)
++ metodo que onde é listado por status os item referente a situação podendo ser ABERTO, RESERVADO E FECHADO
 ![image](https://user-images.githubusercontent.com/97555758/198349813-b7b23399-75ba-42f4-af95-2908a1f50348.png)
++ metodo onde acontece a reserva do item onde no campo a pessoa recebedora coloca seu id e pontua o dono do item q ela recebeu em ate 50 pontos
 ![image](https://user-images.githubusercontent.com/97555758/198350121-a4dd0199-8a50-4daf-beee-7773af660663.png)
++ metodo onde acontece a finalização do item onde no campo a pessoa doadora pontua a pessoa que recebeu o item em ate 50 pontos
 ![image](https://user-images.githubusercontent.com/97555758/198350166-a3bd4c42-d5cd-4024-b797-c2f9737d1b81.png)
 
 

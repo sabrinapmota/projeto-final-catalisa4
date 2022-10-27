@@ -12,6 +12,10 @@ Uma api desenvolvida como um projeto final de pratica de curso no programa de fo
 + avaliar tanto a pessoa que doou quanto a pessoa que recebeu
 + metodos de pesquisa para saber dos produtos livre, reservados ou finalizados
 
+#Requisitos para consumo
+
++ clonar repositorio https://github.com/sabrinapmota/projeto-final-catalisa4
+
 
 
 #Tecnologia utilizada

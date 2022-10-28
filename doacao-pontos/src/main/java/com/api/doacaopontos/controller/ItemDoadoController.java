@@ -42,7 +42,8 @@ public class ItemDoadoController {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping
     public ResponseEntity<ItemDoado> cadastroItem(@RequestBody ItemDoado itemDoado){
-        ItemDoado itemDoado1 = itemDoadosService.cadastrar( itemDoado);
+        itemDoado.setIdPessoaDoadora(Long.parseLong(String.valueOf(itemDoado.getIdPessoaDoadora())));
+        ItemDoado itemDoado1 = itemDoadosService.cadastrar(itemDoado);
         return new ResponseEntity<>(itemDoado1, HttpStatus.CREATED);
     }
     @CrossOrigin(origins = "http://127.0.0.1:5500")

@@ -1,9 +1,9 @@
 const doacao = document.getElementById("cadastro-doacao")
 
-fimDoar.addEventListener('submit', event => { 
+doacao.addEventListener('submit', event => { 
     event.preventDefault();
 
-    const formData = new FormData(fimDoar);  
+    const formData = new FormData(doacao);  
     const data = Object.fromEntries(formData);
 
     console.log(data)

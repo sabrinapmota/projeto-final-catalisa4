@@ -1,9 +1,6 @@
 package com.api.doacaopontos.controller;
 
-import com.api.doacaopontos.dtos.ItemDtoEntrada;
-import com.api.doacaopontos.dtos.ItemSaidaDto;
-import com.api.doacaopontos.dtos.SaidaNomeDto;
-import com.api.doacaopontos.dtos.SaidaPorNomeDto;
+import com.api.doacaopontos.dtos.*;
 import com.api.doacaopontos.model.ItemDoado;
 import com.api.doacaopontos.repository.ItemDoadoRepository;
 import com.api.doacaopontos.services.ItemDoadosService;
@@ -60,7 +57,7 @@ public class ItemDoadoController {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/status/{status}")
     public List<ItemSaidaDto> buscarPorStatus(@PathVariable String status)
-    { return this.itemDoadoRepository.findByStatus(status).stream().map(SaidaPorNomeDto::convert).collect(Collectors.toList());}
+    { return this.itemDoadoRepository.findByStatus(status).stream().map(SaidaStatusDto::convert).collect(Collectors.toList());}
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/nome/{nome}")
     public List<ItemSaidaDto> buscarPorNome(@PathVariable String nome){

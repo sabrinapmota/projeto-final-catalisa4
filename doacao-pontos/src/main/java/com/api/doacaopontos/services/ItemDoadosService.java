@@ -36,7 +36,9 @@ public class ItemDoadosService {
     public ItemSaidaDto cadastrarItem(ItemDtoEntrada itemDtoEntrada) {
         ItemDoado itemDoado = new ItemDoado();
         itemDoado.setId(itemDtoEntrada.getId());
-        itemDoado.setIdPessoaDoadora(itemDoado.getId());
+        itemDoado.setDescricao(itemDtoEntrada.getDescricao());
+        itemDoado.setIdPessoaDoadora(itemDtoEntrada.getIdPessoaDoadora());
+        itemDoado.setNome(itemDtoEntrada.getNome());
         itemDoado.setStatus("ABERTO");
         itemDoado.setDataInicio(LocalDate.now());
         itemDoadoRepository.save(itemDoado);

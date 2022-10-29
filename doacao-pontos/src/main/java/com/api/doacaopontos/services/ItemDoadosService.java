@@ -1,7 +1,9 @@
 package com.api.doacaopontos.services;
 
+import com.api.doacaopontos.dtos.ItemDtoEntrada;
 import com.api.doacaopontos.dtos.ItemSaidaDto;
 import com.api.doacaopontos.dtos.SaidaNomeDto;
+import com.api.doacaopontos.dtos.UsuarioDtoSaida;
 import com.api.doacaopontos.model.ItemDoado;
 import com.api.doacaopontos.model.UsuarioModel;
 import com.api.doacaopontos.repository.ItemDoadoRepository;
@@ -31,11 +33,14 @@ public class ItemDoadosService {
         return itemDoadoRepository.findById(id);
     }
 
-    public ItemDoado cadastrar(ItemDoado itemDoado) {
-        itemDoado.setIdPessoaDoadora(itemDoado.getUsuarioModel().getId());
+    public ItemSaidaDto cadastrarItem(ItemDtoEntrada itemDtoEntrada) {
+        ItemDoado itemDoado = new ItemDoado();
+        itemDoado.setId(itemDtoEntrada.getId());
+        itemDoado.setIdPessoaDoadora(itemDoado.getId());
         itemDoado.setStatus("ABERTO");
         itemDoado.setDataInicio(LocalDate.now());
-        return itemDoadoRepository.save(itemDoado);
+        itemDoadoRepository.save(itemDoado);
+        return new ItemSaidaDto();
     }
 
 

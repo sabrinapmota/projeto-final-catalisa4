@@ -18,7 +18,7 @@ import java.util.Optional;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
-@SpringBootTest
+/*@SpringBootTest
 public class TesteUsuariService {
 
     @Mock
@@ -54,4 +54,4 @@ public class TesteUsuariService {
         usuarioRepository.save(usuarioModel);
          Mockito.verify(usuarioRepository, Mockito.times(1)).save(usuarioModel);
     }
-}
+}*/

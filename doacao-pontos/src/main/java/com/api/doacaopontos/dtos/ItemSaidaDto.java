@@ -2,6 +2,7 @@ package com.api.doacaopontos.dtos;
 
 import com.api.doacaopontos.model.ItemDoado;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ItemSaidaDto {
     private Long id;

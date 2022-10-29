@@ -1,5 +1,6 @@
 package com.api.doacaopontos.controller;
 
+import com.api.doacaopontos.dtos.ItemDtoEntrada;
 import com.api.doacaopontos.dtos.ItemSaidaDto;
 import com.api.doacaopontos.dtos.SaidaNomeDto;
 import com.api.doacaopontos.dtos.SaidaPorNomeDto;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -41,10 +43,9 @@ public class ItemDoadoController {
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping
-    public ResponseEntity<ItemDoado> cadastroItem(@RequestBody ItemDoado itemDoado){
-        itemDoado.setIdPessoaDoadora(Long.parseLong(String.valueOf(itemDoado.getIdPessoaDoadora())));
-        ItemDoado itemDoado1 = itemDoadosService.cadastrar(itemDoado);
-        return new ResponseEntity<>(itemDoado1, HttpStatus.CREATED);
+    public ResponseEntity<ItemSaidaDto> cadastroItem(@RequestBody @Valid ItemDtoEntrada itemDtoEntrada){
+        //ItemDoado itemDoado1 = itemDoadosService.cadastrarItem(itemDoado);
+        return ResponseEntity.status(HttpStatus.CREATED).body(itemDoadosService.cadastrarItem(itemDtoEntrada));
     }
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping(path = "/{id}/reservar-doacao")

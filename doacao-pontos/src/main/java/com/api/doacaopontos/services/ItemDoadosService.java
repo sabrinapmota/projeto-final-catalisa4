@@ -33,16 +33,12 @@ public class ItemDoadosService {
         return itemDoadoRepository.findById(id);
     }
 
-    public ItemSaidaDto cadastrarItem(ItemDtoEntrada itemDtoEntrada) {
-        ItemDoado itemDoado = new ItemDoado();
-        itemDoado.setId(itemDtoEntrada.getId());
-        itemDoado.setDescricao(itemDtoEntrada.getDescricao());
-        itemDoado.setIdPessoaDoadora(itemDtoEntrada.getIdPessoaDoadora());
-        itemDoado.setNome(itemDtoEntrada.getNome());
+    public ItemDoado cadastrarItem(ItemDoado itemDoado) {
         itemDoado.setStatus("ABERTO");
         itemDoado.setDataInicio(LocalDate.now());
-        itemDoadoRepository.save(itemDoado);
-        return new ItemSaidaDto();
+        itemDoado.setIdPessoaDoadora(itemDoado.getUsuarioModel().getId());
+        return itemDoadoRepository.save(itemDoado);
+
     }
 
 

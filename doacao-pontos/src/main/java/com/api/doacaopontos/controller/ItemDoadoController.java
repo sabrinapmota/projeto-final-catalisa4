@@ -43,9 +43,9 @@ public class ItemDoadoController {
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping
-    public ResponseEntity<ItemSaidaDto> cadastroItem(@RequestBody @Valid ItemDtoEntrada itemDtoEntrada){
-        //ItemDoado itemDoado1 = itemDoadosService.cadastrarItem(itemDoado);
-        return ResponseEntity.status(HttpStatus.CREATED).body(itemDoadosService.cadastrarItem(itemDtoEntrada));
+    public ResponseEntity<ItemDoado> cadastroItem(@RequestBody @Valid ItemDoado itemDoado){
+        ItemDoado itemDoado1 = itemDoadosService.cadastrarItem(itemDoado);
+        return ResponseEntity.status(HttpStatus.CREATED).body(itemDoadosService.cadastrarItem(itemDoado1));
     }
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping(path = "/{id}/reservar-doacao")

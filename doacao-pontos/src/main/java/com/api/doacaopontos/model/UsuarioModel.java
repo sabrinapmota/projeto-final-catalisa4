@@ -37,6 +37,6 @@ public class UsuarioModel {
     }*/
 
     @JsonIgnore
-    @OneToMany(mappedBy = "usuarioModel", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pessoaDoadora", cascade = CascadeType.ALL)
     private List<ItemDoado> itemDoados;
 }

@@ -28,13 +28,13 @@ public class SaidaNomeDto {
         this.id = itemDoado.getId();
         this.nome = itemDoado.getNome();
         this.descricao = itemDoado.getDescricao();
-        this.idPessoaDoadora = itemDoado.getIdPessoaDoadora();
+        this.idPessoaDoadora = itemDoado.getPessoaDoadora().getId();
         this.status = itemDoado.getStatus();
         this.dataInicio = itemDoado.getDataInicio();
         this.dataTermino = itemDoado.getDataTermino();
-        this.nomeDoador = itemDoado.getUsuarioModel().getNome();
-        this.email = itemDoado.getUsuarioModel().getEmail();
-        this.telefone = itemDoado.getUsuarioModel().getTelefone();
+        this.nomeDoador = itemDoado.getPessoaDoadora().getNome();
+        this.email = itemDoado.getPessoaDoadora().getEmail();
+        this.telefone = itemDoado.getPessoaDoadora().getTelefone();
     }
 
     public  static List<SaidaNomeDto> convert(List<ItemDoado> itemDoados){

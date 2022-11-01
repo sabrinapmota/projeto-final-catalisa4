@@ -21,12 +21,12 @@ public class SaidaStatusDto {   private Long id;
         item.setId(item.getId());
         item.setNome(itemDoado.getNome());
         item.setDescricao(itemDoado.getDescricao());
-        item.setIdPessoaDoadora(itemDoado.getIdPessoaDoadora());
+        item.setIdPessoaDoadora(itemDoado.getPessoaDoadora().getId());
         item.setStatus(itemDoado.getStatus());
         item.setDataInicio(itemDoado.getDataInicio());
-        item.setNomeDoador(itemDoado.getUsuarioModel().getNome());
-        item.setTelefone(itemDoado.getUsuarioModel().getTelefone());
-        item.setEmail(itemDoado.getUsuarioModel().getEmail());
+        item.setNomeDoador(itemDoado.getPessoaDoadora().getNome());
+        item.setTelefone(itemDoado.getPessoaDoadora().getTelefone());
+        item.setEmail(itemDoado.getPessoaDoadora().getEmail());
 
         return item;
     }

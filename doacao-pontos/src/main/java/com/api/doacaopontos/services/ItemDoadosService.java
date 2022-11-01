@@ -23,12 +23,11 @@ public class ItemDoadosService {
 
     @Autowired
     UsuarioService usuarioService;
-
+@Transactional
     public List<SaidaNomeDto> buscarTodos() {
         List<ItemDoado> itemDoados = itemDoadoRepository.findAll();
         return SaidaNomeDto.convert(itemDoados);
     }
-
 
     public Optional<ItemDoado> buscarId(Long id) {
         return itemDoadoRepository.findById(id);
@@ -41,8 +40,6 @@ public class ItemDoadosService {
         Optional<UsuarioModel> optionalUsuario = usuarioService.buscarId(itemDtoEntrada.getIdPessoaDoadora());
         UsuarioModel usuarioDoador = optionalUsuario.orElseThrow(() -> new IllegalArgumentException("O Doador com o ID " + itemDtoEntrada.getIdPessoaDoadora() + " não existe no Banco de Dados"));
         itemDoado.setPessoaDoadora(usuarioDoador);
-
-
         itemDoado.setNome(itemDtoEntrada.getNome());
         itemDoado.setStatus("ABERTO");
         itemDoado.setDataInicio(LocalDate.now());

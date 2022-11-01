@@ -16,11 +16,9 @@ fetch("http://localhost:8080/item-doado").then((data)=>{
                   <td>${values.dataInicio}</td> 
                   <td>${values.idPessoaDoadora}</td>
                   <td>${values.nomeDoador}</td>
-                  <td>${values.pontosDoador}</td>
                   <td>${values.email}</td>
                   <td>${values.telefone}</td>
-                  <td>${values.nomeRecebedor}</td>
-                  <td>${values.pontosRecebedor}</td>
+                  <td>${values.nomeRecebedor}</td
                   
           
               </td>

@@ -2,41 +2,43 @@
 
 # Sobre o projeto
 
-Uma api desenvolvida como um projeto final de pratica de curso no programa de formação da zup innovation feita em back-end e front-end, api desenvolvida para que pessoas que tenham dificuldade de achar pessoas para doar seus itens parados e para pessoas que não conseguem achar items com facilidade.
+Uma api desenvolvida como um projeto final de prática de curso no programa de formação da Zup Innovation feita em back-end e front-end. A api foi desenvolvida para que pessoas que tenham dificuldades em encontrar pessoas para doar seus itens parados e para pessoas que precisam e não conseguem encontrar items com facilidade.
 
-Api pensada e desenvolvida para que as pessoas consigam ter um meio que facilite a comunicação entre as pessoas que tem interesse em comum sobre o item que desejam
-doar sem que tenha muitas burocracias, o sistema contem no registro de seus usuarios meios de contato para que eles possam entrar num comum acordo para efetuar a doação. 
+Api pensada e desenvolvida para que as pessoas consigam ter um meio que facilite a comunicação entre doador e donatário que tenham interesse em comum sobre o item, sem haver muitas burocracias.
+O sistema contém no registro de seus usuários os meios de contato, email e telefone,  para que possam entrar em acordo para finalizar a doação. 
 
 
-# Funçoes do projeto
+# Funções do projeto
 
-+ Cadastrar usuarios que podem tanto receber ou doar seus items
-+ Cadastrar os item que deseja doar
-+ Reservar o item para que possa ter preferencia 
-+ deletar o item caso não queria mais passa-lo a frente
-+ avaliar tanto a pessoa que doou quanto a pessoa que recebeu
-+ metodos de pesquisa para saber dos produtos livre, reservados ou finalizados
++ Cadastrar usuários, sendo doador ou donatário;
++ Cadastrar os itens que deseja doar;
++ Reservar o item para que possa ter preferência; 
++ Deletar o item caso não queria mais passá-lo adiante;
++ Avaliar tanto a pessoa que doou quanto a pessoa que recebeu;
++ Métodos de pesquisa para saber se os produtos encontra-se livres, reservados ou finalizados.
 
 # Requisitos para consumo
 
-+ clonar repositorio https://github.com/sabrinapmota/projeto-final-catalisa4
-+ ter uma ide para rodar Spring boot em java(recomendo intellij)
-+ um container para comunicar com o banco
-+ banco de dados relacional
-+ postman
++ Clonar repositório https://github.com/sabrinapmota/projeto-final-catalisa4 ;
++ Utilizar  uma IDE para rodar Spring Boot em java(recomendo intellij);
++ Utilizar a versão 11 do SDK;
++ Criar um container para comunicar com o banco;
++ Banco de dados relacional;
++ Postman.
 
-# projeto em uso
-+ metodo onde tem o cadastro de usuario onde ele insere seu nome, email e telefone
+# Projeto em uso
+
++ Método de cadastro de usuário onde insere o nome, email e telefone.
 ![image](https://user-images.githubusercontent.com/97555758/198348806-a229c631-2291-44ca-87b8-4a16ea06d88b.png)
-+ metodo onde mostra em forma de tabelas os usuarios cadastrado contendo id, nome, email, telefone e pontos
++ Método que mostra, em forma de tabelas, os usuários cadastrados contendo id, nome, email, telefone e pontos;
 ![image](https://user-images.githubusercontent.com/97555758/198348998-d5e5b2f9-5ab7-42d2-8e9a-468f0bd8a725.png)
-+ metodo onde ocorre o cadastro do item que será disponivel para doação com nome, descrição e a referencia da pessoa que esta doando
++ Método de cadastro do item que será doado cotendo nome, descrição e a referêcia da pessoa que está doando;
 ![image](https://user-images.githubusercontent.com/97555758/198349658-de400288-7f53-477c-b0c8-cc8d7f568390.png)
-+ metodo que onde é listado por status os item referente a situação podendo ser ABERTO, RESERVADO E FECHADO
++ Método para listar,  por status,  os itens na condição de ABERTO, RESERVADO E FECHADO;
 ![image](https://user-images.githubusercontent.com/97555758/198349813-b7b23399-75ba-42f4-af95-2908a1f50348.png)
-+ metodo onde acontece a reserva do item onde no campo a pessoa recebedora coloca seu id e pontua o dono do item em ate 50 pontos
++ Método para reservar o item. A pessoa recebedora coloca seu id e pontua o doador do item em ate 50 pontos;
 ![image](https://user-images.githubusercontent.com/97555758/198350121-a4dd0199-8a50-4daf-beee-7773af660663.png)
-+ metodo onde acontece a finalização do item onde no campo a pessoa doadora pontua a pessoa que recebeu o item em ate 50 pontos
++ Método para finalizar a doação. O doador pontua a pessoa que recebeu o item em ate 50 pontos;
 ![image](https://user-images.githubusercontent.com/97555758/198350166-a3bd4c42-d5cd-4024-b797-c2f9737d1b81.png)
 
 
@@ -48,7 +50,7 @@ doar sem que tenha muitas burocracias, o sistema contem no registro de seus usua
 + Spring Boot
 + Jpa/hibernate
 + Maven
-+ Validacion
++ Validation
 + Spring Security
 + Docker
 + Pg Admin
@@ -60,6 +62,6 @@ doar sem que tenha muitas burocracias, o sistema contem no registro de seus usua
 #Equipe:
 
 + Alunos/desenvolvedores: Sabrina, Max, Mauricio e William.
-+ Tec Leader/Professores: Cryspim e Joyce.
++ Tech Lead/Professores: Crispim e Joyce.
 + Scrum Master/ Professora: Carol.
-+ P.O/ Mentores: Iris e Rafael.
++ P.O./ Mentores: Iris e Rafael.

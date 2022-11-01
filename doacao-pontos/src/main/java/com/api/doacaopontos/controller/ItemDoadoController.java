@@ -61,7 +61,7 @@ public class ItemDoadoController {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/status/{status}")
     public List<ItemSaidaDto> buscarPorStatus(@PathVariable String status)
-    { return this.itemDoadoRepository.findByStatus(status).stream().map(SaidaPorNomeDto::convert).collect(Collectors.toList());}
+    { return this.itemDoadoRepository.findByStatus(status).stream().map(SaidaStatusDto::convert).collect(Collectors.toList());}
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/nome/{nome}")
     public List<ItemSaidaDto> buscarPorNome(@PathVariable String nome){

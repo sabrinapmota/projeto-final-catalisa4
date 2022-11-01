@@ -30,7 +30,7 @@
             <a class="nav-link active" aria-current="page" href="Consulta Usuario.html">Consultar Usuarios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Reservar item doado.html">Reservar Item doado</a>
+            <a class="nav-link active" aria-current="page" href="ReservarDoacao.html">Reservar Item doado</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="Finaliza Transacao.html">Finalizar Transação</a>
@@ -42,10 +42,15 @@
   </nav>
 
   <form id="finalizar">
+
+    <div class="mb-3">
+      <label class="form-label">Informe o Id para finalizar</label>
+      <input type="text" name = "id_item" class="form-control" id="id_item" placeholder="Id para finalizar" required>
+  </div>
     
     <div class="mb-3">
       <label class="form-label">Pontos para Recebedor</label>
-      <input type="text" name = "pontos" class="form-control" id="pontos" placeholder="Informe quantidade de pontos até 50" required>
+      <input type="text" name = "pontosParaRecebedor" class="form-control" id="pontosParaRecebedor" placeholder="Informe quantidade de pontos até 50" required>
   </div>
     
     <button type="submit" onclick="msg()" class="btn btn-lg btn-primary m-3 d-grid gap-2 col-4 mx-auto">Finalizar</button>

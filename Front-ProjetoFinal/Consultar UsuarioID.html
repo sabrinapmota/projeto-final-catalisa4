@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Reserva de Item Doado </title>
+    <title>Cadastro de Usuário </title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,7 +30,7 @@
             <a class="nav-link active" aria-current="page" href="Consulta Usuario.html">Consultar Usuarios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Reservar item doado.html">Reservar Item doado</a>
+            <a class="nav-link active" aria-current="page" href="ReservarDoacao.html">Reservar Item doado</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="Finaliza Transacao.html">Finalizar Transação</a>
@@ -40,25 +40,27 @@
     </div>
   </div>
   </nav>
+<h1 class="text-center ">Cadastro de Doações</h1>
 
-  <h1 class="text-center ">Reservar Doações</h1>
+<form id="cadastro-doacao">
+<div class="mb-3">
+    <label class="form-label">Nome do Item</label>
+    <input type="text" name = "nome" class="form-control" id="nome" placeholder="Informe o nome do item" required>
+</div>
+<div class="mb-3">
+    <label class="form-label">Descricão do Item</label>
+    <input type="text" name = "descricao" class="form-control" id="descricao" placeholder="Informe a descricao">
+</div>
+<div class="mb-3">
+  <label class="form-label">usuarioModel</label>
+  <input type="number" name = "idPessoaDoadora" class="form-control" id="idPessoaDoadora" placeholder="idPessoaDoadora">
+</div>
 
-<form id="reservar">
-  <div class="mb-3">
-    <label class="form-label">Id Recebedor</label>
-    <input type="text" name ="idPessoaRecebedora" class="form-control" id="idPessoaRecebedora" placeholder="Informar o ID da Pessoa Recebedora" required>
-  </div>
-
-  <div class="mb-3">
-  <label class="form-label">Pontos Doador</label>
-  <input type="text" name ="pontosDoador" class="form-control" id="pontosDoador" placeholder="Informe qtde pontos Doador" required>
-  </div>
-
-  <button type="submit" onclick="msg()" class="btn btn-lg btn-primary m-3 d-grid gap-2 col-4 mx-auto">Reservar</button>
+<button type="submit" onclick="msg()" class="btn btn-lg btn-primary m-3 d-grid gap-2 col-4 mx-auto">Enviar</button>
 
 </form>
 
-      <script src="js/reservar item.js" ></script>
+<script src="js/doacao.js" ></script>
 
 </body>
 </html>

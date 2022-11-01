@@ -2,6 +2,7 @@ package com.api.doacaopontos.dtos;
 
 import com.api.doacaopontos.model.ItemDoado;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SaidaNomeDto {
     private Long id;
@@ -21,20 +23,34 @@ public class SaidaNomeDto {
     private LocalDate dataTermino;
     private String nomeDoador;
     private String email;
-
     private String telefone;
+
+    private String nomeRecebedor;
 
     public  SaidaNomeDto (ItemDoado itemDoado){
         this.id = itemDoado.getId();
         this.nome = itemDoado.getNome();
         this.descricao = itemDoado.getDescricao();
-        this.idPessoaDoadora = itemDoado.getIdPessoaDoadora();
+
+        if(itemDoado.getPessoaDoadora() != null)
+            this.idPessoaDoadora = itemDoado.getPessoaDoadora().getId();
+
         this.status = itemDoado.getStatus();
         this.dataInicio = itemDoado.getDataInicio();
         this.dataTermino = itemDoado.getDataTermino();
-        this.nomeDoador = itemDoado.getUsuarioModel().getNome();
-        this.email = itemDoado.getUsuarioModel().getEmail();
-        this.telefone = itemDoado.getUsuarioModel().getTelefone();
+
+        if(itemDoado.getPessoaDoadora() != null)
+            this.nomeDoador = itemDoado.getPessoaDoadora().getNome();
+
+        if(itemDoado.getPessoaDoadora() != null)
+            this.email = itemDoado.getPessoaDoadora().getEmail();
+
+        if(itemDoado.getPessoaDoadora() != null)
+            this.telefone = itemDoado.getPessoaDoadora().getTelefone();
+
+        if(itemDoado.getPessoaRecebedora() != null)
+            this.nomeRecebedor = itemDoado.getPessoaRecebedora().getNome();
+
     }
 
     public  static List<SaidaNomeDto> convert(List<ItemDoado> itemDoados){

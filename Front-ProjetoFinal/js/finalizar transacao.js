@@ -6,9 +6,7 @@ fimDoar.addEventListener('submit', event => {
     const formData = new FormData(fimDoar);  
     const data = Object.fromEntries(formData);
 
-    console.log(data)
-
-    fetch("http://localhost:8080/item-doado/{id}/finalizar-doacao", {
+    fetch(`http://localhost:8080/item-doado/${data.id_item}/finalizar-doacao`, {
         method: 'POST',
         headers: {
             'Content-Type':'application/json'

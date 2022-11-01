@@ -4,6 +4,7 @@ import com.api.doacaopontos.dtos.*;
 import com.api.doacaopontos.model.ItemDoado;
 import com.api.doacaopontos.repository.ItemDoadoRepository;
 import com.api.doacaopontos.services.ItemDoadosService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/item-doado")
+@Slf4j
 public class ItemDoadoController {
 
     @Autowired
@@ -40,19 +42,21 @@ public class ItemDoadoController {
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping
-    public ResponseEntity<ItemDoado> cadastroItem(@RequestBody @Valid ItemDoado itemDoado){
-        ItemDoado itemDoado1 = itemDoadosService.cadastrarItem(itemDoado);
-        return ResponseEntity.status(HttpStatus.CREATED).body(itemDoadosService.cadastrarItem(itemDoado1));
+    public ResponseEntity<ItemSaidaDto> cadastroItem(@RequestBody @Valid ItemDtoEntrada itemDtoEntrada){
+        log.info("Recebendo solicitação de cadastro da doação: {}",itemDtoEntrada);
+        ItemSaidaDto dtoResposta = itemDoadosService.cadastrarItem(itemDtoEntrada);
+        return ResponseEntity.status(HttpStatus.CREATED).body(dtoResposta);
     }
     @CrossOrigin(origins = "http://127.0.0.1:5500")
-    @PostMapping(path = "/{id}/reservar-doacao")
-    public ResponseEntity<ItemDoado> pontosDoado (@RequestBody ItemDoado itemDoado) {
-        return ResponseEntity.ok(itemDoadosService.reservarItem(itemDoado));
+    @PostMapping(path = "/{id_item}/reservar-doacao")
+    public ResponseEntity<ItemDoado> pontosDoado (@RequestBody @Valid ItemReservaDto dto,@PathVariable ("id_item") Long id ) {
+        return ResponseEntity.ok(itemDoadosService.reservarItem(id,dto));
     }
     @CrossOrigin(origins = "http://127.0.0.1:5500")
-    @PostMapping(path = "/{id}/finalizar-doacao")
-    public ResponseEntity<ItemDoado> pontosDoador(@RequestBody ItemDoado itemDoado) {
-        return ResponseEntity.ok(itemDoadosService.fecharItem(itemDoado));
+    @PostMapping(path = "/{id_item}/finalizar-doacao")
+    public ResponseEntity<ItemDoado> pontosDoador(@RequestBody @Valid FinalizarItemDTO finalizarItemDTO, @PathVariable ("id_item") Long id) {
+        log.info("Recebendo solicitação de finalização da doação({}): {}",id,finalizarItemDTO);
+        return ResponseEntity.ok(itemDoadosService.fecharItem(id, finalizarItemDTO));
     }
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/status/{status}")

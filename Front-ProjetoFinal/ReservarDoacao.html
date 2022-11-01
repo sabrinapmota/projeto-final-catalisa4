@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Cadastro de Usuário </title>
+    <title>Reserva de Item Doado </title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,27 +40,31 @@
     </div>
   </div>
   </nav>
-<h1 class="text-center ">Cadastro de Doações</h1>
 
-<form id="cadastro-doacao">
-<div class="mb-3">
-    <label class="form-label">Nome do Item</label>
-    <input type="text" name = "nome" class="form-control" id="nome" placeholder="Informe o nome do item" required>
-</div>
-<div class="mb-3">
-    <label class="form-label">Descricão do Item</label>
-    <input type="text" name = "descricao" class="form-control" id="descricao" placeholder="Informe a descricao">
-</div>
-<div class="mb-3">
-  <label class="form-label">usuarioModel</label>
-  <input type="number" name = "idPessoaDoadora" class="form-control" id="idPessoaDoadora" placeholder="idPessoaDoadora">
-</div>
+  <h1 class="text-center ">Reservar Doações</h1>
 
-<button type="submit" onclick="msg()" class="btn btn-lg btn-primary m-3 d-grid gap-2 col-4 mx-auto">Enviar</button>
+  <form id="reservar">
+    <div class="mb-3">
+      <label class="form-label">Id Item a ser reservado</label>
+      <input type="text" name ="id_item" class="form-control" id="id_item" placeholder="Informar o Id do Item" required>
+    </div>
+
+<form id="reservar">
+  <div class="mb-3">
+    <label class="form-label">Id Recebedor</label>
+    <input type="text" name ="idPessoaRecebedora" class="form-control" id="idPessoaRecebedora" placeholder="Informar o ID da Pessoa Recebedora" required>
+  </div>
+
+  <div class="mb-3">
+  <label class="form-label">Pontos Doador</label>
+  <input type="text" name ="pontosParaDoador" class="form-control" id="pontosDoador" placeholder="Informe qtde pontos Doador" required>
+  </div>
+
+  <button type="submit" onclick="msg()" class="btn btn-lg btn-primary m-3 d-grid gap-2 col-4 mx-auto">Reservar</button>
 
 </form>
 
-<script src="js/doacao.js" ></script>
+      <script src="js/reservar item.js" ></script>
 
 </body>
 </html>

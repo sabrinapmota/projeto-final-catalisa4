@@ -1,4 +1,4 @@
-const doar = document.getElementById("cadastro-doacao")
+const doar = document.getElementById("table-itens")
 
 fetch("http://localhost:8080/item-doado").then((data)=>{
     return data.json();
@@ -7,18 +7,22 @@ fetch("http://localhost:8080/item-doado").then((data)=>{
       mostrarItems.map((values) =>{
           data1 += `
           <tbody>
+          
               <tr align="center">
-                  <th scope="row">${values.id} </td>
+              <th scope="row">${values.id} </td>
                   <td>${values.nome}</td> 
                   <td>${values.descricao}</td> 
-                  <td>${values.idPessoaDoadora} </td>
                   <td>${values.status}</td> 
                   <td>${values.dataInicio}</td> 
-                  <td>${values.dataTermino}</td>
-                  <td>${values.idPessoaRecebedora}</td>
+                  <td>${values.dataTermino}</td> 
+                  <td>${values.idPessoaDoadora}</td>
+                  <td>${values.nomeDoador}</td>
                   <td>${values.pontosDoador}</td>
+                  <td>${values.email}</td>
+                  <td>${values.telefone}</td>
+                  <td>${values.nomeRecebedor}</td>
                   <td>${values.pontosRecebedor}</td>
-                  <td><input type="checkbox"></td>
+                  
               </tr>
           </tbody>
           `

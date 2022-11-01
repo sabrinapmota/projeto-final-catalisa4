@@ -6,7 +6,7 @@ reserva.addEventListener('submit', event => {
     const formData = new FormData(reserva);  
     const data = Object.fromEntries(formData);
 
-    fetch("http://localhost:8080/item-doado/{id}/reservar-doacao", {
+    fetch(`http://localhost:8080/item-doado/${data.id_item}/reservar-doacao`, {
         method: 'POST',
         headers: {
             'Content-Type':'application/json'

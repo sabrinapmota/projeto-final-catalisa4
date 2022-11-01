@@ -14,14 +14,16 @@ fetch("http://localhost:8080/item-doado").then((data)=>{
                   <td>${values.descricao}</td> 
                   <td>${values.status}</td> 
                   <td>${values.dataInicio}</td> 
+                  <td>${values.dataTermino}</td> 
                   <td>${values.idPessoaDoadora}</td>
                   <td>${values.nomeDoador}</td>
+                  <td>${values.pontosDoador}</td>
                   <td>${values.email}</td>
                   <td>${values.telefone}</td>
-                  <td>${values.nomeRecebedor}</td
+                  <td>${values.nomeRecebedor}</td>
+                  <td>${values.pontosRecebedor}</td>
                   
-          
-              </td>
+              </tr>
           </tbody>
           `
       })

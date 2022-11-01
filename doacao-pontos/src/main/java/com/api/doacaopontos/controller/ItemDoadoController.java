@@ -52,11 +52,12 @@ public class ItemDoadoController {
     public ResponseEntity<ItemDoado> pontosDoado (@RequestBody @Valid ItemReservaDto dto,@PathVariable ("id_item") Long id ) {
         return ResponseEntity.ok(itemDoadosService.reservarItem(id,dto));
     }
-//    @CrossOrigin(origins = "http://127.0.0.1:5500")
-//    @PostMapping(path = "/{id}/finalizar-doacao")
-//    public ResponseEntity<ItemDoado> pontosDoador(@RequestBody ItemDoado itemDoado) {
-//        return ResponseEntity.ok(itemDoadosService.fecharItem(itemDoado));
-   // }
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @PostMapping(path = "/{id_item}/finalizar-doacao")
+    public ResponseEntity<ItemDoado> pontosDoador(@RequestBody @Valid FinalizarItemDTO finalizarItemDTO, @PathVariable ("id_item") Long id) {
+        log.info("Recebendo solicitação de finalização da doação({}): {}",id,finalizarItemDTO);
+        return ResponseEntity.ok(itemDoadosService.fecharItem(id, finalizarItemDTO));
+    }
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/status/{status}")
     public List<ItemSaidaDto> buscarPorStatus(@PathVariable String status)

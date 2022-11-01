@@ -1,9 +1,6 @@
 package com.api.doacaopontos.services;
 
-import com.api.doacaopontos.dtos.ItemDtoEntrada;
-import com.api.doacaopontos.dtos.ItemReservaDto;
-import com.api.doacaopontos.dtos.ItemSaidaDto;
-import com.api.doacaopontos.dtos.SaidaNomeDto;
+import com.api.doacaopontos.dtos.*;
 import com.api.doacaopontos.model.ItemDoado;
 import com.api.doacaopontos.model.UsuarioModel;
 import com.api.doacaopontos.repository.ItemDoadoRepository;
@@ -53,6 +50,7 @@ public class ItemDoadosService {
         itemDoadoRepository.deleteById(id);
     }
 
+@Transactional
     public ItemDoado reservarItem(Long idItem, ItemReservaDto reservaDto) {
         if(reservaDto.getPontosParaDoador()>50L)
             throw  new RuntimeException("Erro: O limite de pontos é 50");
@@ -63,27 +61,28 @@ public class ItemDoadosService {
         Optional<UsuarioModel> optionalUsuario = usuarioService.buscarId(reservaDto.getIdPessoaRecebedora());
         UsuarioModel usuarioRecebedor = optionalUsuario.orElseThrow(() -> new IllegalArgumentException("O Recebedor com o ID " + reservaDto.getIdPessoaRecebedora() + " não existe no Banco de Dados"));
         itemDoado.setPessoaRecebedora(usuarioRecebedor);
-
         //TODO criar um enum para o status das reservas;
-
         itemDoado.setStatus("RESERVADO");
         itemDoado.setPontosDoador(reservaDto.getPontosParaDoador());
         itemDoado.setPessoaRecebedora(usuarioRecebedor);
 
-        usuarioService.incrementaPontos(usuarioRecebedor, reservaDto.getPontosParaDoador());
+        usuarioService.incrementaPontos(itemDoado.getPessoaDoadora(), reservaDto.getPontosParaDoador());
         return itemDoadoRepository.saveAndFlush(itemDoado);
     }
-//
-//    public ItemDoado fecharItem(ItemDoado itemDoado) {
-//        if(itemDoado.getPontosDoador()>50L){
-//            throw  new RuntimeException("Erro: O limite de pontos é 50");}
-//        else { itemDoado.setStatus("FECHADO");
-//            itemDoado.setDataTermino(LocalDate.now());}
-//        Long pontos = itemDoado.getPontosRecebedor();
-//        itemDoado.setPontosDoador(0L);
-//        UsuarioModel usuario = usuarioService.buscarId(itemDoado.getUsuarioModel().getId()).orElseThrow();
-//        usuarioService.incrementaPontos(usuario, pontos);
-//        return itemDoadoRepository.save(itemDoado);
-//    }
+@Transactional
+    public ItemDoado fecharItem(Long id, FinalizarItemDTO finalizarItemDTO) {
+
+        if(finalizarItemDTO.getPontosParaRecebedor()>50L)
+            throw  new IllegalArgumentException("Erro: O limite de pontos é 50");
+    ItemDoado itemDoado = itemDoadoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("O Id do Item " + id + " informado não existe no banco de dados"));
+        itemDoado.setStatus("FECHADO");
+        itemDoado.setDataTermino(LocalDate.now());
+        itemDoado.setPontosRecebedor(finalizarItemDTO.getPontosParaRecebedor());
+        usuarioService.incrementaPontos(itemDoado.getPessoaRecebedora(), finalizarItemDTO.getPontosParaRecebedor());
+        return itemDoadoRepository.saveAndFlush(itemDoado);
+    }
+
+
 }
+
 

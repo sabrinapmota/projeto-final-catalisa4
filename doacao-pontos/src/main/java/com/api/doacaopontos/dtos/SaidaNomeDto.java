@@ -31,13 +31,22 @@ public class SaidaNomeDto {
         this.id = itemDoado.getId();
         this.nome = itemDoado.getNome();
         this.descricao = itemDoado.getDescricao();
-        this.idPessoaDoadora = itemDoado.getPessoaDoadora().getId();
+
+        if(itemDoado.getPessoaDoadora() != null)
+            this.idPessoaDoadora = itemDoado.getPessoaDoadora().getId();
+
         this.status = itemDoado.getStatus();
         this.dataInicio = itemDoado.getDataInicio();
         this.dataTermino = itemDoado.getDataTermino();
-        this.nomeDoador = itemDoado.getPessoaDoadora().getNome();
-        this.email = itemDoado.getPessoaDoadora().getEmail();
-        this.telefone = itemDoado.getPessoaDoadora().getTelefone();
+
+        if(itemDoado.getPessoaDoadora() != null)
+            this.nomeDoador = itemDoado.getPessoaDoadora().getNome();
+
+        if(itemDoado.getPessoaDoadora() != null)
+            this.email = itemDoado.getPessoaDoadora().getEmail();
+
+        if(itemDoado.getPessoaDoadora() != null)
+            this.telefone = itemDoado.getPessoaDoadora().getTelefone();
 
         if(itemDoado.getPessoaRecebedora() != null)
             this.nomeRecebedor = itemDoado.getPessoaRecebedora().getNome();

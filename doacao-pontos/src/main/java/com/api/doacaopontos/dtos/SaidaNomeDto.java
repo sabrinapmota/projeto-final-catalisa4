@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,33 +28,33 @@ public class SaidaNomeDto {
 
     private String nomeRecebedor;
 
-    public  SaidaNomeDto (ItemDoado itemDoado){
+    public SaidaNomeDto(ItemDoado itemDoado) {
         this.id = itemDoado.getId();
         this.nome = itemDoado.getNome();
         this.descricao = itemDoado.getDescricao();
 
-        if(itemDoado.getPessoaDoadora() != null)
+        if (itemDoado.getPessoaDoadora() != null)
             this.idPessoaDoadora = itemDoado.getPessoaDoadora().getId();
 
         this.status = itemDoado.getStatus();
         this.dataInicio = itemDoado.getDataInicio();
         this.dataTermino = itemDoado.getDataTermino();
 
-        if(itemDoado.getPessoaDoadora() != null)
+        if (itemDoado.getPessoaDoadora() != null)
             this.nomeDoador = itemDoado.getPessoaDoadora().getNome();
 
-        if(itemDoado.getPessoaDoadora() != null)
+        if (itemDoado.getPessoaDoadora() != null)
             this.email = itemDoado.getPessoaDoadora().getEmail();
 
-        if(itemDoado.getPessoaDoadora() != null)
+        if (itemDoado.getPessoaDoadora() != null)
             this.telefone = itemDoado.getPessoaDoadora().getTelefone();
 
-        if(itemDoado.getPessoaRecebedora() != null)
+        if (itemDoado.getPessoaRecebedora() != null)
             this.nomeRecebedor = itemDoado.getPessoaRecebedora().getNome();
 
     }
 
-    public  static List<SaidaNomeDto> convert(List<ItemDoado> itemDoados){
+    public static List<SaidaNomeDto> convert(List<ItemDoado> itemDoados) {
         return itemDoados.stream().map(SaidaNomeDto::new).collect(Collectors.toList());
     }
 }

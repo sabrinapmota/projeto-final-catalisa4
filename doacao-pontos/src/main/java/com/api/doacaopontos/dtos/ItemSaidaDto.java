@@ -27,7 +27,7 @@ public class ItemSaidaDto {
 
     private String telefone;
 
-    public ItemSaidaDto(ItemDoado itemDoado){
+    public ItemSaidaDto(ItemDoado itemDoado) {
         this.id = itemDoado.getId();
         this.nome = itemDoado.getNome();
         this.descricao = itemDoado.getDescricao();
@@ -40,7 +40,7 @@ public class ItemSaidaDto {
         this.telefone = itemDoado.getPessoaDoadora().getTelefone();
     }
 
-    public  static List<ItemSaidaDto> convert(List<ItemDoado> itemDoados){
+    public static List<ItemSaidaDto> convert(List<ItemDoado> itemDoados) {
         return itemDoados.stream().map(ItemSaidaDto::new).collect(Collectors.toList());
     }
 }

@@ -13,7 +13,7 @@ import java.util.UUID;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table (name = "login")
+@Table(name = "login")
 public class LoginModel implements UserDetails, Serializable {//o serializabe transforma os dados em byte no BD
     private static final  long seriaVersionUID =1L;
     @Id

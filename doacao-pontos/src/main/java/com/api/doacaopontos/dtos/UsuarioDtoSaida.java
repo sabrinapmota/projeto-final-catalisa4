@@ -24,6 +24,4 @@ public class UsuarioDtoSaida {
     @JsonProperty("telefone")
     private String telefone;
 
-//    public UsuarioDtoSaida(Long id, String nome, String email, String telefone) {
-//    }
 }

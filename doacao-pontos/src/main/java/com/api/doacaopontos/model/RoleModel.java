@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Table(name = "role")
 public class RoleModel implements GrantedAuthority, Serializable {//o GrantedAuthorit é interface que é faz controle de acesso do Spring
-    private static final  long seriaVersionUID =1L;
+    private static final long seriaVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID roleId;

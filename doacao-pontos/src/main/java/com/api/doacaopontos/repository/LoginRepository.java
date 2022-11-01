@@ -10,5 +10,5 @@ import java.util.UUID;
 @Repository
 public interface LoginRepository extends JpaRepository<LoginModel, UUID> {
 
-    Optional<LoginModel>findByNomeLogin(String nomelogin);
+    Optional<LoginModel> findByNomeLogin(String nomelogin);
 }

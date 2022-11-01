@@ -20,7 +20,8 @@ public class ItemDoadosService {
 
     @Autowired
     UsuarioService usuarioService;
-@Transactional
+
+    @Transactional
     public List<SaidaNomeDto> buscarTodos() {
         List<ItemDoado> itemDoados = itemDoadoRepository.findAll();
         return SaidaNomeDto.convert(itemDoados);
@@ -43,17 +44,24 @@ public class ItemDoadosService {
         itemDoadoRepository.saveAndFlush(itemDoado);
         return new ItemSaidaDto();
     }
-@Transactional
-    public List<ItemDoado> buscarStatus(String status){return itemDoadoRepository.findByStatus(status);}
-    public List<ItemDoado> buscarNome(String nome){return itemDoadoRepository.findByNome(nome);}
+
+    @Transactional
+    public List<ItemDoado> buscarStatus(String status) {
+        return itemDoadoRepository.findByStatus(status);
+    }
+
+    public List<ItemDoado> buscarNome(String nome) {
+        return itemDoadoRepository.findByNome(nome);
+    }
+
     public void deletarItem(Long id) {
         itemDoadoRepository.deleteById(id);
     }
 
-@Transactional
+    @Transactional
     public ItemDoado reservarItem(Long idItem, ItemReservaDto reservaDto) {
-        if(reservaDto.getPontosParaDoador()>50L)
-            throw  new RuntimeException("Erro: O limite de pontos é 50");
+        if (reservaDto.getPontosParaDoador() > 50L)
+            throw new RuntimeException("Erro: O limite de pontos é 50");
         ItemDoado itemDoado = itemDoadoRepository.findById(idItem).orElseThrow(() -> new IllegalArgumentException("O Id do Item " + idItem + " informado não existe no banco de dados"));
         if (itemDoado.getPessoaRecebedora() != null) {
             throw new IllegalArgumentException("Esta doação ja possui recebedor");
@@ -69,12 +77,13 @@ public class ItemDoadosService {
         usuarioService.incrementaPontos(itemDoado.getPessoaDoadora(), reservaDto.getPontosParaDoador());
         return itemDoadoRepository.saveAndFlush(itemDoado);
     }
-@Transactional
+
+    @Transactional
     public ItemDoado fecharItem(Long id, FinalizarItemDTO finalizarItemDTO) {
 
-        if(finalizarItemDTO.getPontosParaRecebedor()>50L)
-            throw  new IllegalArgumentException("Erro: O limite de pontos é 50");
-    ItemDoado itemDoado = itemDoadoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("O Id do Item " + id + " informado não existe no banco de dados"));
+        if (finalizarItemDTO.getPontosParaRecebedor() > 50L)
+            throw new IllegalArgumentException("Erro: O limite de pontos é 50");
+        ItemDoado itemDoado = itemDoadoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("O Id do Item " + id + " informado não existe no banco de dados"));
         itemDoado.setStatus("FECHADO");
         itemDoado.setDataTermino(LocalDate.now());
         itemDoado.setPontosRecebedor(finalizarItemDTO.getPontosParaRecebedor());

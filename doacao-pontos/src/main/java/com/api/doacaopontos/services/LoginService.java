@@ -6,6 +6,7 @@ import com.api.doacaopontos.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -17,8 +18,9 @@ public class LoginService {
     LoginRepository repository;
 
     public List<LoginModel> buscarTodos() {
-       return repository.findAll();
+        return repository.findAll();
     }
+
     public Optional<LoginModel> buscarId(UUID userId) {
         return repository.findById(userId);
     }
@@ -28,8 +30,9 @@ public class LoginService {
         loginModel.setPassword(passwordEncrypted);
         return repository.save(loginModel);
     }
-    public void deletar( UUID userId){
+
+    public void deletar(UUID userId) {
         repository.deleteById(userId);
-     }
+    }
 }
 

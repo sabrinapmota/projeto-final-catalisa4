@@ -28,14 +28,6 @@ public class UsuarioModel {
     @Column
     private Long pontos;
 
-    /*public UsuarioModel(Long id, String nome, String email, String telefone, Long pontos) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.pontos = pontos;
-    }*/
-
     @JsonIgnore
     @OneToMany(mappedBy = "pessoaDoadora", cascade = CascadeType.ALL)
     private List<ItemDoado> itemDoados;

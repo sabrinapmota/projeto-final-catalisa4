@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping ("/login")
+@RequestMapping("/login")
 public class LoginController {
 
     @Autowired
@@ -24,19 +24,19 @@ public class LoginController {
     public ResponseEntity<List<LoginModel>> mostrarLogin() {
         return ResponseEntity.ok(service.buscarTodos());
     }
+
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @GetMapping(path = "/{userId}")
-    public ResponseEntity<Optional<LoginModel>>exibirPorId(@PathVariable UUID userId) {
+    public ResponseEntity<Optional<LoginModel>> exibirPorId(@PathVariable UUID userId) {
         return ResponseEntity.ok(service.buscarId(userId));
     }
 
-
-    public ResponseEntity<LoginModel> cadastrarLogin(@RequestBody LoginModel loginModel){
+    public ResponseEntity<LoginModel> cadastrarLogin(@RequestBody LoginModel loginModel) {
         return new ResponseEntity<>(service.cadastrar(loginModel), HttpStatus.CREATED);
     }
 
-    @DeleteMapping(path ="/{userId}")
-    public void deletar(@PathVariable UUID userId){
+    @DeleteMapping(path = "/{userId}")
+    public void deletar(@PathVariable UUID userId) {
         service.deletar(userId);
     }
 }

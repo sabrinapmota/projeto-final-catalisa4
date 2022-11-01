@@ -4,6 +4,7 @@ import com.api.doacaopontos.model.ItemDoado;
 import lombok.Data;
 
 import java.time.LocalDate;
+
 @Data
 public class SaidaPorNomeDto {
 
@@ -18,7 +19,7 @@ public class SaidaPorNomeDto {
     private String telefone;
     private String email;
 
-    public static ItemSaidaDto convert(ItemDoado itemDoado){
+    public static ItemSaidaDto convert(ItemDoado itemDoado) {
         var item = new ItemSaidaDto();
         item.setId(item.getId());
         item.setNome(itemDoado.getNome());

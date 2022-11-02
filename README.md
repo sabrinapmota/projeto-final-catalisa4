@@ -27,19 +27,17 @@ doar sem que tenha muitas burocracias, o sistema contem no registro de seus usua
 
 # projeto em uso
 + metodo onde tem o cadastro de usuario onde ele insere seu nome, email e telefone
-![image](https://user-images.githubusercontent.com/97555758/198348806-a229c631-2291-44ca-87b8-4a16ea06d88b.png)
+![image](https://user-images.githubusercontent.com/97555758/199359425-b9eb7cc2-1db2-4a8f-aa1b-7e37044d99cd.png)
 + metodo onde mostra em forma de tabelas os usuarios cadastrado contendo id, nome, email, telefone e pontos
-![image](https://user-images.githubusercontent.com/97555758/198348998-d5e5b2f9-5ab7-42d2-8e9a-468f0bd8a725.png)
+![image](https://user-images.githubusercontent.com/97555758/199359495-bf39dbcb-476c-4e82-a336-35765b138d4f.png)
 + metodo onde ocorre o cadastro do item que será disponivel para doação com nome, descrição e a referencia da pessoa que esta doando
-![image](https://user-images.githubusercontent.com/97555758/198349658-de400288-7f53-477c-b0c8-cc8d7f568390.png)
-+ metodo que onde é listado por status os item referente a situação podendo ser ABERTO, RESERVADO E FECHADO
-![image](https://user-images.githubusercontent.com/97555758/198349813-b7b23399-75ba-42f4-af95-2908a1f50348.png)
+![image](https://user-images.githubusercontent.com/97555758/199359703-63df077a-a5b9-4493-9f3a-6f4aacd81d40.png)
++ metodo que onde é listado os item referente a situação podendo ser ABERTO, RESERVADO E FECHADO
+![image](https://user-images.githubusercontent.com/97555758/199360049-700526f4-1042-47c3-8292-60efcf9b150c.png)
 + metodo onde acontece a reserva do item onde no campo a pessoa recebedora coloca seu id e pontua o dono do item em ate 50 pontos
-![image](https://user-images.githubusercontent.com/97555758/198350121-a4dd0199-8a50-4daf-beee-7773af660663.png)
+![image](https://user-images.githubusercontent.com/97555758/199360476-d6d05a9d-7104-48d8-a179-290287960c1d.png)
 + metodo onde acontece a finalização do item onde no campo a pessoa doadora pontua a pessoa que recebeu o item em ate 50 pontos
-![image](https://user-images.githubusercontent.com/97555758/198350166-a3bd4c42-d5cd-4024-b797-c2f9737d1b81.png)
-
-
+![image](https://user-images.githubusercontent.com/97555758/199360614-45d62112-7d9e-42c5-bc6b-ddec0f07ffab.png)
 
 # Tecnologia utilizada
 
